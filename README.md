@@ -1,4 +1,4 @@
-# learning-svelte
+# Learning Svelte
 
 - [Tutorial](https://svelte.dev/tutorial/svelte/welcome-to-svelte)
 - [Creating a project](https://svelte.dev/docs/kit/creating-a-project)
