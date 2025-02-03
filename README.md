@@ -2,7 +2,7 @@
 
 ## Apps
 
-- [My First Svelte App](./gemini)
+- [My First Svelte App (Gemini)](./gemini)
 
 ## References
 
