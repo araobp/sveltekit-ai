@@ -1,5 +1,7 @@
 # Learning Svelte
 
+<img src="./docs/MyFirstSvelteApp.jpg" width=400>
+
 ## Apps
 
 - [My First Svelte App (Gemini)](./gemini)
