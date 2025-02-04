@@ -6,7 +6,7 @@ I love VanillaJS, but as I'm building a generative AI app at work, the code is g
 
 ## Which one is better for me, Svelte or SvelteKit?
 
-Since development will be done in combination with Flask, Svelte will only be used on the frontend. However, SvelteKit includes convenient features such as a router. Therefore, I will use SvelteKit.
+Since development will be done in combination with Flask in my job, Svelte will only be used on the frontend. However, SvelteKit includes convenient features such as a router. Therefore, I will use SvelteKit.
 
 ## Apps
 
