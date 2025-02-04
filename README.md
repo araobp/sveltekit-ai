@@ -14,7 +14,7 @@ Since development will be done in combination with Flask in my job, Svelte will 
 
 ## References
 
-- [Tutorial](https://svelte.dev/tutorial/svelte/welcome-to-svelte)
+- [Tutorial](https://svelte.dev/tutorial/kit/introducing-sveltekit)
 - [Creating a project](https://svelte.dev/docs/kit/creating-a-project)
 - [Static Site Deployment](https://svelte.dev/docs/kit/adapter-static)
 - [Building an app](https://svelte.dev/docs/kit/building-your-app)
