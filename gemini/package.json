@@ -17,6 +17,7 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
+		"@sveltejs/adapter-static": "^3.0.8",
 		"@sveltestrap/sveltestrap": "^7.0.3",
 		"showdown": "^2.1.0"
 	}

@@ -1,16 +1,110 @@
-<div class="container">
-    <nav>
-        <a href="/">home</a>
-        <a href="/about">about</a>
-    </nav>
+<script>
+    import { PUBLIC_GEMINI_API_KEY } from "$env/static/public";
+    import { GoogleGenerativeAI } from "@google/generative-ai";
+    import showdown from "showdown";
+    import { onMount } from "svelte";
 
-    <h1>Home</h1>
-    <div class="list-group">
-        <a href="/gemini" class="list-group-item list-group-item-action"
-            >Gemini</a
-        >
-        <a href="/about" class="list-group-item list-group-item-action">About</a
-        >
+    const converter = new showdown.Converter();
+
+    var s_Answer = $state("");
+    
+    const genAI = new GoogleGenerativeAI(PUBLIC_GEMINI_API_KEY);
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+    const describeImage = async b64Image => {
+        const data = b64Image.split(',')[1].trim();
+        const mimeType = b64Image.split(';')[0].split(':')[1];
+
+        const result = await model.generateContent([
+            {
+                inlineData: {
+                    data: data,
+                    mimeType: mimeType
+                }
+            },
+            "Describe the image",
+        ]);
+
+        const text = result.response.text();
+        s_Answer = converter.makeHtml(text);
+    };
+
+    // Drag and Drop an image
+    // Reference: https://transloadit.com/devtips/implementing-file-uploads-with-bootstrap-5/
+    var DropZone;
+    var FileInput;
+    var ErrorMessage;
+    var Img;
+
+    const ALLOWED_IMAGE_TYPES = ["image/jpeg", "image/png"];
+    const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+    const DROP_ZONE_TEXT = "Drag and drop a file here";
+
+    const toBase64 = (file) =>
+        new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = reject;
+        });
+
+    onMount(() => {
+        Img.ondragover = (e) => {
+            e.preventDefault();
+            Img.classList.add("bg-light");
+        };
+
+        Img.ondragleave = (e) => {
+            Img.classList.remove("bg-light");
+        };
+
+        Img.ondrop = async (e) => {
+            e.preventDefault();
+            Img.classList.remove("bg-light");
+            ErrorMessage.classList.add("d-none");
+
+            try {
+                const file = e.dataTransfer.files[0];
+                if (!ALLOWED_IMAGE_TYPES.includes(file.type)) {
+                    throw new Error(
+                        "Invalid file type. Please upload JPEG or PNG.",
+                    );
+                }
+                if (file.size > MAX_SIZE) {
+                    throw new Error("File too large. Maximum size is 5MB.");
+                }
+                FileInput.files = e.dataTransfer.files;
+                const b64Image = await toBase64(FileInput.files[0]);
+                Img.src = b64Image;
+                describeImage(b64Image);
+            } catch (error) {
+                ErrorMessage.textContent = error.message;
+                ErrorMessage.classList.remove("d-none");
+            }
+        };
+    });
+</script>
+
+<div class="container">
+    <h1>Gemini 1.5 Flash</h1>
+
+    <div class="d-flex mt-3">
+        <div class="w-25">
+            <!-- svelte-ignore a11y_missing_attribute -->
+            <img bind:this={Img} src="/favicon.png" class="w-100 p-2" />
+            <div
+                bind:this={ErrorMessage}
+                class="alert alert-danger d-none mt-2"
+            ></div>
+            <input
+                type="file"
+                class="d-none"
+                accept="image/jpeg,image/png"
+                bind:this={FileInput}
+            />
+        </div>
+
+        <div class="w-75 p-2">{@html s_Answer}</div>
     </div>
 </div>
 
