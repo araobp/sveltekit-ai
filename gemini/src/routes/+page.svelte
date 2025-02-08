@@ -4,41 +4,40 @@
     import showdown from "showdown";
     import { onMount } from "svelte";
 
-    const converter = new showdown.Converter();
-
-    var s_Answer = $state("");
-    
     const genAI = new GoogleGenerativeAI(PUBLIC_GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const describeImage = async b64Image => {
-        const data = b64Image.split(',')[1].trim();
-        const mimeType = b64Image.split(';')[0].split(':')[1];
+    const describeImageWithGemini = async (b64Image) => {
+        const data = b64Image.split(",")[1].trim();
+        const mimeType = b64Image.split(";")[0].split(":")[1];
 
         const result = await model.generateContent([
             {
                 inlineData: {
                     data: data,
-                    mimeType: mimeType
-                }
+                    mimeType: mimeType,
+                },
             },
             "Describe the image",
         ]);
 
-        const text = result.response.text();
-        s_Answer = converter.makeHtml(text);
+        return result.response.text();
     };
 
     // Drag and Drop an image
     // Reference: https://transloadit.com/devtips/implementing-file-uploads-with-bootstrap-5/
+    const ALLOWED_IMAGE_TYPES = ["image/jpeg", "image/png"];
+    const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+
     var DropZone;
     var FileInput;
     var ErrorMessage;
     var Img;
+    var GeneratingSpinner;
 
-    const ALLOWED_IMAGE_TYPES = ["image/jpeg", "image/png"];
-    const MAX_SIZE = 5 * 1024 * 1024; // 5MB
-    const DROP_ZONE_TEXT = "Drag and drop a file here";
+    var s_Answer = $state("");
+
+    const converter = new showdown.Converter();
 
     const toBase64 = (file) =>
         new Promise((resolve, reject) => {
@@ -76,7 +75,11 @@
                 FileInput.files = e.dataTransfer.files;
                 const b64Image = await toBase64(FileInput.files[0]);
                 Img.src = b64Image;
-                describeImage(b64Image);
+                s_Answer = ""
+                GeneratingSpinner.classList.remove("d-none");
+                const answer = await describeImageWithGemini(b64Image);
+                s_Answer = converter.makeHtml(answer);
+                GeneratingSpinner.classList.add("d-none");
             } catch (error) {
                 ErrorMessage.textContent = error.message;
                 ErrorMessage.classList.remove("d-none");
@@ -104,7 +107,12 @@
             />
         </div>
 
-        <div class="w-75 p-2">{@html s_Answer}</div>
+        <div class="w-75 p-2">
+            {@html s_Answer}
+            <div class="spinner-border d-none" role="status" bind:this={GeneratingSpinner}>
+                <span class="visually-hidden">Loading...</span>
+            </div>            
+        </div>
     </div>
 </div>
 
