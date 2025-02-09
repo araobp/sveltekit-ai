@@ -1,8 +1,6 @@
 # Learning Svelte
 
-<img src="./docs/MyFirstSvelteApp.jpg" width=400>
-
-I love VanillaJS, but as I'm building a generative AI app at work, the code is getting bloated and difficult to maintain. So, I'd like to learn a JavaScript framework. Svelte seems to be the simplest one, so I'll learn Svelte.
+I'm building a generative AI app at work. The code is getting bloated and difficult to maintain. So, I'd like to learn a JavaScript framework. Svelte seems to be the simplest one, so I'll learn Svelte.
 
 ## Which one is better for me, Svelte or SvelteKit?
 
