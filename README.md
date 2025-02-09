@@ -4,7 +4,7 @@ I'm building a generative AI app at work. The code is getting bloated and diffic
 
 ## Apps
 
-- [My First Svelte App (Gemini)](./gemini)
+- [My First Svelte App with Gemini](./gemini)
   - ["DropImage" custom element](./gemini/src/lib/DropImage.svelte)
 
 ## References
