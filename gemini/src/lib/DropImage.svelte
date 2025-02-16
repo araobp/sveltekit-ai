@@ -7,7 +7,7 @@
     // Drag and Drop an image
     // Reference: https://transloadit.com/devtips/implementing-file-uploads-with-bootstrap-5/
 
-    const ALLOWED_IMAGE_TYPES = ["image/jpeg", "image/png"];
+    const ALLOWED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp"];
     const MAX_SIZE = 5 * 1024 * 1024; // 5MB
     const DEFAULT_IMAGE = "/drag_and_drop.png";
     var {
@@ -51,7 +51,7 @@
                 const file = e.dataTransfer.files[0];
                 if (!ALLOWED_IMAGE_TYPES.includes(file.type)) {
                     throw new Error(
-                        "Invalid file type. Please upload JPEG or PNG.",
+                        "Invalid file type. Please upload JPEG, PNG or WEBP.",
                     );
                 }
                 if (file.size > maxSize) {

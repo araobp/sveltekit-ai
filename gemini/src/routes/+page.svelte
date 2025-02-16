@@ -5,10 +5,14 @@
     import "bootstrap/dist/css/bootstrap.min.css";
 
     import DropImage from "$lib/DropImage.svelte";
+    import MessageModal from "$lib/MessageModal.svelte";
+    import { SPINNER } from "$lib/bootstrap-html";
 
     var ApiKeyInput;
     var s_GeminiApiKey = $state("");
     const GEMINI_API_KEY_STORAGE_KEY = "gemini-api-key";
+
+    var s_Modal = $state();
 
     onMount(() => {
         ApiKeyInput.onchange = (e) => {
@@ -32,7 +36,6 @@
     const MAX_SIZE = 5 * 1024 * 1024; // 5MB
     const DEFAULT_IMAGE = "/favicon.png";
 
-    var GeneratingSpinner;
     var s_Answer = $state();
 
     const converter = new showdown.Converter();
@@ -55,14 +58,14 @@
     };
 
     const describe = async (b64Image) => {
+        s_Modal.show();
         s_Answer = "";
-        GeneratingSpinner.classList.remove("d-none");
         const answer = await generateContentWithGemini(
             b64Image,
             "Describe the image",
         );
         s_Answer = converter.makeHtml(answer);
-        GeneratingSpinner.classList.add("d-none");
+        s_Modal.hide();
     };
 </script>
 
@@ -84,13 +87,8 @@
         </div>
         <div class="w-75 p-2">
             {@html s_Answer}
-            <div
-                class="spinner-border d-none"
-                role="status"
-                bind:this={GeneratingSpinner}
-            >
-                <span class="visually-hidden">Loading...</span>
-            </div>
         </div>
     </div>
 </div>
+
+<MessageModal title="Processing..." innerHTML={SPINNER} bind:modal={s_Modal}></MessageModal>
