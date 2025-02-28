@@ -8,10 +8,13 @@
     var { title, innerHTML, modal = $bindable() } = $props();
     var bootstrap;
 
+    var messageModalId = crypto.randomUUID();
+    var messageModalLabelId = crypto.randomUUID();
+
     onMount(async () => {
         bootstrap = await import("bootstrap/dist/js/bootstrap.bundle.min.js");
         modal = new bootstrap.Modal(
-            document.getElementById("messageModal"),
+            document.getElementById(messageModalId),
             {},
         );
     });
@@ -19,15 +22,15 @@
 
 <div
     class="modal fade"
-    id="messageModal"
+    id={messageModalId}
     tabindex="-1"
-    aria-labelledby="messageModalLabel"
+    aria-labelledby={messageModalLabelId}
     aria-hidden="true"
 >
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="messageModalLabel">{title}</h1>
+                <h1 class="modal-title fs-5" id={messageModalLabelId}>{title}</h1>
             </div>
             <div class="modal-body">
                 {@html innerHTML}
