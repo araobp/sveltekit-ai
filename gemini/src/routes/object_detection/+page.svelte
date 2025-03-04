@@ -39,8 +39,13 @@
         const answer = await generateContentWithGemini(
             b64Image,
             `
-            Return bounding boxes for all objects in the image in the following format as a list: [ymin, xmin, ymax, xmax, object_name].
-            If there are more than one object, return separate lists for each object."
+            Return bounding boxes for all objects in the image.
+
+            If a group of the same type of objects is clustered together, separate the individual objects and output bounding boxes.
+
+            Repeat detecting objects to detect as many objects as possible.
+
+            Output data only without any extra explanations about the output.
             `,
         );
         s_Answer = converter.makeHtml(answer);
