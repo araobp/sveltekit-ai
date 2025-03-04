@@ -33,26 +33,29 @@
         return result.response.text();
     };
 
-    const describe = async (b64Image) => {
+    const detect = async (b64Image) => {
         s_Modal.show();
         s_Answer = "";
         const answer = await generateContentWithGemini(
             b64Image,
-            "Describe the image",
+            `
+            Return bounding boxes for all objects in the image in the following format as a list: [ymin, xmin, ymax, xmax, object_name].
+            If there are more than one object, return separate lists for each object."
+            `,
         );
         s_Answer = converter.makeHtml(answer);
         s_Modal.hide();
     };
 </script>
 
-<h1>Image Recognition</h1>
+<h1>Object Detection</h1>
 
 <div class="d-flex mt-3">
     <div class="w-25 p-2">
         <DropImage
             maxSize={MAX_SIZE}
             defaultImage{DEFAULT_IMAGE}
-            callback={describe}
+            callback={detect}
         ></DropImage>
     </div>
     <div class="w-75 p-2">
