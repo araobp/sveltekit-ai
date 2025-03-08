@@ -4,11 +4,11 @@ I'm building a generative AI app at work. The code is getting bloated and diffic
 
 So, I'd like to learn a JavaScript framework. Svelte seems to be the simplest one, so I'll learn Svelte.
 
+## Apps
+
 <img src="docs/image_recognition.png" width=600>
 
 <img src="docs/object_detection.png" width=600>
-
-## Apps
 
 - [Svelte App with Gemini](./gemini)
   - ["DropImage" custom element](./gemini/src/lib/DropImage.svelte)
