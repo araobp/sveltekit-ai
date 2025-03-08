@@ -1,8 +1,8 @@
-# Learning Svelte with Gemini
+# Learning SvelteKit with Gemini
 
 I'm building a generative AI app at work. The code is getting bloated and difficult to maintain.
 
-So, I'd like to learn a JavaScript framework. Svelte seems to be the simplest one, so I'll learn Svelte.
+So, I'd like to learn a JavaScript framework. SvelteKit seems to be the simplest one, so I'll learn Svelte.
 
 ## Apps
 
