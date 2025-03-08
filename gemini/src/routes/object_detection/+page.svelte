@@ -6,6 +6,8 @@
     import DropImage from "$lib/DropImage.svelte";
     import MessageModal from "$lib/MessageModal.svelte";
     import { SPINNER } from "$lib/bootstrap-html";
+    import { browser } from "$app/environment";
+    import { drawBoundingBoxes } from "./bounding_boxes";
 
     var s_Modal = $state();
 
@@ -34,22 +36,52 @@
     };
 
     const detect = async (b64Image) => {
+
+        const parse = (text) => {
+            // Attempt to find JSON arrays
+            const arrayStart = text.indexOf("[");
+            const arrayEnd = text.lastIndexOf("]");
+
+            if (arrayStart !== -1 && arrayEnd !== -1 && arrayStart < arrayEnd) {
+                const jsonArrayString = text.substring(
+                    arrayStart,
+                    arrayEnd + 1,
+                );
+                return JSON.parse(jsonArrayString);
+            } else {
+                return null;
+            }
+        };
+
         s_Modal.show();
         s_Answer = "";
         const answer = await generateContentWithGemini(
             b64Image,
             `
-            Return bounding boxes for all objects in the image.
+            Return bounding boxes for all objects (including persons and animals) in the image.
 
             If a group of the same type of objects is clustered together, separate the individual objects and output bounding boxes.
 
-            Repeat detecting objects to detect as many objects as possible.
+            If the object is an animal, output the kind of animal.
 
             Output data only without any extra explanations about the output.
             `,
         );
         s_Answer = converter.makeHtml(answer);
         s_Modal.hide();
+
+        const result = parse(s_Answer);
+        console.log(parse(s_Answer));
+
+        const imgDiv = document.getElementById("image");
+        imgDiv.innerHTML = "";
+
+        const img = document.createElement("img");
+        img.src = b64Image;
+        imgDiv.appendChild(img);
+
+        drawBoundingBoxes(img, result);
+
     };
 </script>
 
@@ -67,6 +99,9 @@
         {@html s_Answer}
     </div>
 </div>
+
+<!-- svelte-ignore a11y_missing_attribute -->
+ <div id="image"></div>
 
 <MessageModal title="Processing..." innerHTML={SPINNER} bind:modal={s_Modal}
 ></MessageModal>
