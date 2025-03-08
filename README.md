@@ -1,6 +1,8 @@
 # Learning Svelte
 
-I'm building a generative AI app at work. The code is getting bloated and difficult to maintain. So, I'd like to learn a JavaScript framework. Svelte seems to be the simplest one, so I'll learn Svelte.
+I'm building a generative AI app at work. The code is getting bloated and difficult to maintain.
+
+So, I'd like to learn a JavaScript framework. Svelte seems to be the simplest one, so I'll learn Svelte.
 
 <img src="docs/image_recognition.png" width=600>
 
