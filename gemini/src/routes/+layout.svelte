@@ -13,14 +13,22 @@
 
     const GEMINI_API_KEY_STORAGE_KEY = "gemini-api-key";
 
-    const getModel = (apiKey) => {
+    const getApiKeyFromLocalStrage = () => {
+        if (browser) {
+            return 
+        } else {
+            return null;
+        }
+    };
+
+    const setModel = (apiKey) => {
         const genAI = new GoogleGenerativeAI(apiKey);
         $aiParams.model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
     };
 
     const setApiKey = (apiKey) => {
         localStorage.setItem(GEMINI_API_KEY_STORAGE_KEY, apiKey);
-        getModel(apiKey);
+        setModel(apiKey);
     };
 
     $effect(() => {
@@ -28,9 +36,9 @@
     });
 
     if (browser) {
-        const apiKey = localStorage.getItem(GEMINI_API_KEY_STORAGE_KEY);
+        const apiKey = getApiKeyFromLocalStrage();
         if (apiKey !== null) {
-            getModel(apiKey);
+            setModel(apiKey);
         }
     };
 
