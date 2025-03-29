@@ -1,4 +1,4 @@
-# Learning SvelteKit with Gemini
+# Learning SvelteKit with Gemini and TensorFlow
 
 I'm building a generative AI app at work. The code is getting bloated and difficult to maintain.
 
