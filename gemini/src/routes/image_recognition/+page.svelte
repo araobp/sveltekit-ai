@@ -1,6 +1,6 @@
 <script>
     import { GoogleGenerativeAI } from "@google/generative-ai";
-    import { model } from "$lib/settings";
+    import { aiParams } from "$lib/settings";
     import showdown from "showdown";
 
     import DropImage from "$lib/DropImage.svelte";
@@ -20,7 +20,7 @@
         const data = b64Image.split(",")[1].trim();
         const mimeType = b64Image.split(";")[0].split(":")[1];
 
-        const result = await $model.generateContent([
+        const result = await $aiParams.model.generateContent([
             {
                 inlineData: {
                     data: data,
