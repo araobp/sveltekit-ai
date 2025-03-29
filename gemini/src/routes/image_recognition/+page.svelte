@@ -1,11 +1,14 @@
 <script>
     import { GoogleGenerativeAI } from "@google/generative-ai";
-    import { aiParams } from "$lib/settings";
+    import { aiParams, GEMINI, TF } from "$lib/settings";
     import showdown from "showdown";
 
     import DropImage from "$lib/DropImage.svelte";
     import MessageModal from "$lib/MessageModal.svelte";
     import { SPINNER } from "$lib/bootstrap-html";
+
+    import * as tf from '@tensorflow/tfjs';
+    import * as mobilenet from '@tensorflow-models/mobilenet';
 
     var s_Modal = $state();
 
@@ -33,14 +36,23 @@
         return result.response.text();
     };
 
-    const describe = async (b64Image) => {
+    const describe = async (b64Image, imageElm) => {
         s_Modal.show();
         s_Answer = "";
-        const answer = await generateContentWithGemini(
-            b64Image,
-            "Describe the image",
-        );
-        s_Answer = converter.makeHtml(answer);
+        console.log(aiParams)
+        if ($aiParams.mode === GEMINI) {
+            const answer = await generateContentWithGemini(
+                b64Image,
+                "Describe the image",
+            );
+            s_Answer = converter.makeHtml(answer);
+        } else if ($aiParams.mode === TF) {
+            console.log("loading...")
+            const model = await mobilenet.load();
+            const result = await model.classify(imageElm);
+            console.log(result);
+        }
+
         s_Modal.hide();
     };
 </script>

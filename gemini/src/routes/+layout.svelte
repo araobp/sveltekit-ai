@@ -15,7 +15,7 @@
 
     const getApiKeyFromLocalStrage = () => {
         if (browser) {
-            return 
+            return localStorage.getItem(GEMINI_API_KEY_STORAGE_KEY)
         } else {
             return null;
         }

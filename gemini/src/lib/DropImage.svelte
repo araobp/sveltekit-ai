@@ -10,6 +10,7 @@
     const ALLOWED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp"];
     const MAX_SIZE = 5 * 1024 * 1024; // 5MB
     const DEFAULT_IMAGE = "/drag_and_drop.png";
+
     var {
         maxSize = MAX_SIZE,
         defaultImage = DEFAULT_IMAGE,
@@ -20,6 +21,7 @@
     var FileInput;
     var ErrorMessage;
     var Img;
+    var imageElm;
 
     const toBase64 = (file) =>
         new Promise((resolve, reject) => {
@@ -30,6 +32,8 @@
         });
 
     onMount(() => {
+        imageElm = document.getElementById("image");
+
         Img.ondragover = (e) => {
             e.preventDefault();
             Img.classList.add("bg-light");
@@ -60,7 +64,7 @@
                 FileInput.files = e.dataTransfer.files;
                 const b64Image = await toBase64(FileInput.files[0]);
                 Img.src = b64Image;
-                callback(b64Image);
+                callback(b64Image, imageElm);
             } catch (error) {
                 ErrorMessage.textContent = error.message;
                 ErrorMessage.classList.remove("d-none");
@@ -70,7 +74,7 @@
 </script>
 
 <!-- svelte-ignore a11y_missing_attribute -->
-<img bind:this={Img} src={defaultImage} class="border border-2 w-100" />
+<img id="image" bind:this={Img} src={defaultImage} class="border border-2 w-100" />
 <div bind:this={ErrorMessage} class="alert alert-danger d-none mt-2"></div>
 <input
     type="file"
