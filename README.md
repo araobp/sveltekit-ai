@@ -20,5 +20,4 @@ So, I'd like to learn a JavaScript framework. SvelteKit seems to be the simplest
 - [Creating a project](https://svelte.dev/docs/kit/creating-a-project)
 - [Static Site Deployment](https://svelte.dev/docs/kit/adapter-static)
 - [Building an app](https://svelte.dev/docs/kit/building-your-app)
-- [Slelte](https://threlte.xyz/)
 - [TensorFlow.js](https://www.tensorflow.org/js/models?hl=ja)
