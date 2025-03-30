@@ -1,14 +1,15 @@
 <script>
-    import { GoogleGenerativeAI } from "@google/generative-ai";
+    import { GoogleGenerativeAI, HarmProbability } from "@google/generative-ai";
     import { aiParams, GEMINI, TF } from "$lib/settings";
     import showdown from "showdown";
 
     import DropImage from "$lib/DropImage.svelte";
     import MessageModal from "$lib/MessageModal.svelte";
     import { SPINNER } from "$lib/bootstrap-html";
+    import { round } from "$lib/utils";
 
-    import * as tf from '@tensorflow/tfjs';
-    import * as mobilenet from '@tensorflow-models/mobilenet';
+    import * as tf from "@tensorflow/tfjs";
+    import * as mobilenet from "@tensorflow-models/mobilenet";
 
     var s_Modal = $state();
 
@@ -39,7 +40,7 @@
     const describe = async (b64Image, imageElm) => {
         s_Modal.show();
         s_Answer = "";
-        console.log(aiParams)
+        console.log(aiParams);
         if ($aiParams.mode === GEMINI) {
             const answer = await generateContentWithGemini(
                 b64Image,
@@ -47,14 +48,18 @@
             );
             s_Answer = converter.makeHtml(answer);
         } else if ($aiParams.mode === TF) {
-            console.log("loading...")
+            console.log("loading...");
             const model = await mobilenet.load();
-            const result = await model.classify(imageElm);
-            console.log(result);
+            s_Answer = await model.classify(imageElm);
         }
 
         s_Modal.hide();
     };
+
+    $effect(() => {
+        $aiParams.mode;
+        s_Answer = "";
+    });
 </script>
 
 <h1>Image Recognition</h1>
@@ -68,7 +73,29 @@
         ></DropImage>
     </div>
     <div class="w-75 p-2">
-        {@html s_Answer}
+        <div class={$aiParams.mode === GEMINI ? "d-inline" : "d-none"}>
+            {@html s_Answer}
+        </div>
+        <div class={$aiParams.mode === TF ? "d-inline" : "d-none"}>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Class Name</th>
+                        <th scope="col" class="text-end">Probability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {#each s_Answer as answer, idx}
+                        <tr>
+                            <th scope="row">{idx + 1}</th>
+                            <td>{answer.className}</td>
+                            <td class="text-end">{round(answer.probability*100.0, 1)}%</td>
+                        </tr>
+                    {/each}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

@@ -80,7 +80,7 @@
             <option value={TF}>TensorFlow</option>
         </select>
 
-        <div class={s_AiMode === "gemini" ? "input-group w-50 ms-3" : "d-none"}>
+        <div class={s_AiMode === GEMINI ? "input-group w-50 ms-3" : "d-none"}>
             <span class="input-group-text" id="">Gemini API Key</span>
             <input
                 type="text"
