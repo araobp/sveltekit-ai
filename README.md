@@ -12,7 +12,7 @@ So, I've started learning SvelteKit to fix that. SvelteKit looks like the easies
 
 <img src="docs/image_recognition_gemini.jpg" width=600>
 
-#### TensorFlow.js
+#### TensorFlow.js mobilenet
 
 <img src="docs/image_recognition_tf.jpg" width=600>
 
@@ -22,7 +22,7 @@ So, I've started learning SvelteKit to fix that. SvelteKit looks like the easies
 
 <img src="docs/object_detection_gemini.jpg" width=600>
 
-#### TensorFlow.js
+#### TensorFlow.js coco-ssd
 
 <img src="docs/object_detection_tf.jpg" width=600>
 
