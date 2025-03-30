@@ -4,13 +4,29 @@ I've been building a generative AI app at work with Vanilla JS, but the code's g
 
 So, I've started learning SvelteKit to fix that. SvelteKit looks like the easiest JavaScript framework to pick up, so I'm going to learn it.
 
-## Apps
+## App
+
+### Image Recognition
+
+#### Gemini
 
 <img src="docs/image_recognition_gemini.jpg" width=600>
+
+#### TensorFlow
+
 <img src="docs/image_recognition_tf.jpg" width=600>
 
+### Object Detection
+
+#### Gemini
+
 <img src="docs/object_detection_gemini.jpg" width=600>
+
+#### TensorFlow
+
 <img src="docs/object_detection_tf.jpg" width=600>
+
+## Code
 
 - [Svelte App with Gemini and TensorFlow](./gemini)
   - ["DropImage" custom element](./gemini/src/lib/DropImage.svelte)
