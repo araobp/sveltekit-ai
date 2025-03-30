@@ -1,8 +1,6 @@
 # Learning SvelteKit with Gemini and TensorFlow
 
-I'm building a generative AI app at work. The code is getting bloated and difficult to maintain.
-
-So, I'd like to learn a JavaScript framework. SvelteKit seems to be the simplest one, so I'll learn Svelte.
+I've been building a generative AI app at work with Vanilla JS, but the code's getting really bloated and hard to manage. So, I've started learning SvelteKit to fix that. SvelteKit looks like the easiest JavaScript framework to pick up, so I'm going to learn it.
 
 ## Apps
 
