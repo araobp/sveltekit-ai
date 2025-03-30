@@ -8,21 +8,21 @@ So, I've started learning SvelteKit to fix that. SvelteKit looks like the easies
 
 ### Image Recognition
 
-#### Gemini
+#### Gemini 2.0 Flash
 
 <img src="docs/image_recognition_gemini.jpg" width=600>
 
-#### TensorFlow
+#### TensorFlow.js
 
 <img src="docs/image_recognition_tf.jpg" width=600>
 
 ### Object Detection
 
-#### Gemini
+#### Gemini 2.0 Flash
 
 <img src="docs/object_detection_gemini.jpg" width=600>
 
-#### TensorFlow
+#### TensorFlow.js
 
 <img src="docs/object_detection_tf.jpg" width=600>
 
