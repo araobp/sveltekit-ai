@@ -1,8 +1,8 @@
 # Learning SvelteKit with Gemini and TensorFlow
 
-I'm building a generative AI app at work. The code is getting bloated and difficult to maintain.
+I've been building a generative AI app at work with Vanilla JS, but the code's getting really bloated and hard to manage.
 
-So, I'd like to learn a JavaScript framework. SvelteKit seems to be the simplest one, so I'll learn Svelte.
+So, I've started learning SvelteKit to fix that. SvelteKit looks like the easiest JavaScript framework to pick up, so I'm going to learn it.
 
 ## Apps
 
@@ -10,7 +10,7 @@ So, I'd like to learn a JavaScript framework. SvelteKit seems to be the simplest
 
 <img src="docs/object_detection.png" width=600>
 
-- [Svelte App with Gemini](./gemini)
+- [Svelte App with Gemini and TensorFlow](./gemini)
   - ["DropImage" custom element](./gemini/src/lib/DropImage.svelte)
   - ["MessageModal" custom element](./gemini/src/lib/MessageModal.svelte)
 
@@ -20,4 +20,4 @@ So, I'd like to learn a JavaScript framework. SvelteKit seems to be the simplest
 - [Creating a project](https://svelte.dev/docs/kit/creating-a-project)
 - [Static Site Deployment](https://svelte.dev/docs/kit/adapter-static)
 - [Building an app](https://svelte.dev/docs/kit/building-your-app)
-- [TensorFlow.js](https://www.tensorflow.org/js/models?hl=ja)
+- [TensorFlow.js](https://www.tensorflow.org/js)
