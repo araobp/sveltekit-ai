@@ -10,7 +10,7 @@ So, I'd like to learn a JavaScript framework. SvelteKit seems to be the simplest
 
 <img src="docs/object_detection.png" width=600>
 
-- [Svelte App with Gemini](./gemini)
+- [Svelte App with Gemini and TensorFlow](./gemini)
   - ["DropImage" custom element](./gemini/src/lib/DropImage.svelte)
   - ["MessageModal" custom element](./gemini/src/lib/MessageModal.svelte)
 
