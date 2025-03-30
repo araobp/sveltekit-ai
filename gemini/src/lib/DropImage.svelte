@@ -32,7 +32,7 @@
         });
 
     onMount(() => {
-        imageElm = document.getElementById("image");
+        imageElm = document.getElementById("drop_image");
 
         Img.ondragover = (e) => {
             e.preventDefault();
@@ -74,7 +74,7 @@
 </script>
 
 <!-- svelte-ignore a11y_missing_attribute -->
-<img id="image" bind:this={Img} src={defaultImage} class="border border-2 w-100" />
+<img id="drop_image" bind:this={Img} src={defaultImage} class="border border-2 w-100" />
 <div bind:this={ErrorMessage} class="alert alert-danger d-none mt-2"></div>
 <input
     type="file"

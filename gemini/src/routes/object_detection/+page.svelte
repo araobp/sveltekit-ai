@@ -1,6 +1,7 @@
 <script>
     import { GoogleGenerativeAI } from "@google/generative-ai";
-    import { aiParams } from "$lib/settings";
+    import { aiParams, GEMINI, TF } from "$lib/settings";
+    import { round } from "$lib/utils";
     import showdown from "showdown";
 
     import DropImage from "$lib/DropImage.svelte";
@@ -8,6 +9,9 @@
     import { SPINNER } from "$lib/bootstrap-html";
     import { browser } from "$app/environment";
     import { drawBoundingBoxes } from "./bounding_boxes";
+
+    import * as tf from "@tensorflow/tfjs";
+    import * as cocoSsd from "@tensorflow-models/coco-ssd";
 
     var s_Modal = $state();
 
@@ -35,8 +39,7 @@
         return result.response.text();
     };
 
-    const detect = async (b64Image) => {
-
+    const detect = async (b64Image, _) => {
         const parse = (text) => {
             // Attempt to find JSON arrays
             const arrayStart = text.indexOf("[");
@@ -53,11 +56,24 @@
             }
         };
 
-        s_Modal.show();
         s_Answer = "";
-        const answer = await generateContentWithGemini(
-            b64Image,
-            `
+
+        var answer;
+        var result;
+
+        const imgDiv = document.getElementById("image");
+        imgDiv.innerHTML = "";
+
+        const img = document.createElement("img");
+        img.src = b64Image;
+
+
+        if ($aiParams.mode === GEMINI) {
+            s_Modal.show();
+
+            answer = await generateContentWithGemini(
+                b64Image,
+                `
             Return bounding boxes for all objects (including persons and animals) in the image.
 
             If a group of the same type of objects is clustered together, separate the individual objects and output bounding boxes.
@@ -66,22 +82,29 @@
 
             Output data only without any extra explanations about the output.
             `,
-        );
-        s_Answer = converter.makeHtml(answer);
-        s_Modal.hide();
+            );
+            result = parse(answer);
+            s_Modal.hide();
+        } else if ($aiParams.mode === TF) {
+            const model = await cocoSsd.load();
+            answer = await model.detect(img, 20, 0.3);
+            result = answer.map((e) => ({
+                box_2d: [
+                    round(e.bbox[1], 2),
+                    round(e.bbox[0], 2),
+                    round(e.bbox[1] + e.bbox[3], 2),
+                    round(e.bbox[0] + e.bbox[2], 2),
+                ],
+                label: e.class,
+                score: round(e.score, 2),
+            }));
+            answer = JSON.stringify(result);
+        }
 
-        const result = parse(s_Answer);
-        console.log(parse(s_Answer));
-
-        const imgDiv = document.getElementById("image");
-        imgDiv.innerHTML = "";
-
-        const img = document.createElement("img");
-        img.src = b64Image;
         imgDiv.appendChild(img);
-
-        drawBoundingBoxes(img, result);
-
+        s_Answer = converter.makeHtml(answer);
+        drawBoundingBoxes(img, result, $aiParams.mode);
+        
     };
 </script>
 
@@ -101,7 +124,7 @@
 </div>
 
 <!-- svelte-ignore a11y_missing_attribute -->
- <div id="image"></div>
+<div id="image"></div>
 
 <MessageModal title="Processing..." innerHTML={SPINNER} bind:modal={s_Modal}
 ></MessageModal>

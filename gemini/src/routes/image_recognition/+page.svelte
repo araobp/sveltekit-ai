@@ -40,7 +40,7 @@
     const describe = async (b64Image, imageElm) => {
         s_Modal.show();
         s_Answer = "";
-        console.log(aiParams);
+
         if ($aiParams.mode === GEMINI) {
             const answer = await generateContentWithGemini(
                 b64Image,
@@ -48,11 +48,10 @@
             );
             s_Answer = converter.makeHtml(answer);
         } else if ($aiParams.mode === TF) {
-            console.log("loading...");
             const model = await mobilenet.load();
             s_Answer = await model.classify(imageElm);
         }
-
+        
         s_Modal.hide();
     };
 
@@ -90,7 +89,9 @@
                         <tr>
                             <th scope="row">{idx + 1}</th>
                             <td>{answer.className}</td>
-                            <td class="text-end">{round(answer.probability*100.0, 1)}%</td>
+                            <td class="text-end"
+                                >{round(answer.probability * 100.0, 1)}%</td
+                            >
                         </tr>
                     {/each}
                 </tbody>
