@@ -6,9 +6,11 @@ So, I've started learning SvelteKit to fix that. SvelteKit looks like the easies
 
 ## Apps
 
-<img src="docs/image_recognition.png" width=600>
+<img src="docs/image_recognition_gemini.jpg" width=600>
+<img src="docs/image_recognition_tf.jpg" width=600>
 
-<img src="docs/object_detection.png" width=600>
+<img src="docs/object_detection_gemini.jpg" width=600>
+<img src="docs/object_detection_tf.jpg" width=600>
 
 - [Svelte App with Gemini and TensorFlow](./gemini)
   - ["DropImage" custom element](./gemini/src/lib/DropImage.svelte)
