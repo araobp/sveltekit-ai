@@ -23,6 +23,8 @@
     var Img;
     var imageElm;
 
+    const id = crypto.randomUUID();
+
     const toBase64 = (file) =>
         new Promise((resolve, reject) => {
             const reader = new FileReader();
@@ -32,7 +34,7 @@
         });
 
     onMount(() => {
-        imageElm = document.getElementById("drop_image");
+        imageElm = document.getElementById(id);
 
         Img.ondragover = (e) => {
             e.preventDefault();
@@ -74,7 +76,7 @@
 </script>
 
 <!-- svelte-ignore a11y_missing_attribute -->
-<img id="drop_image" bind:this={Img} src={defaultImage} class="border border-2 w-100" />
+<img id={id} bind:this={Img} src={defaultImage} class="border border-2 w-100" />
 <div bind:this={ErrorMessage} class="alert alert-danger d-none mt-2"></div>
 <input
     type="file"
