@@ -1,6 +1,6 @@
 <script>
     // Settings
-    import { geminiModel, GEMINI, TF } from "$lib/settings";
+    import { geminiAPI, GEMINI, TF } from "$lib/settings";
 
     // TensorFlow.js
     import * as tf from "@tensorflow/tfjs";
@@ -30,7 +30,7 @@
         const data = b64Image.split(",")[1].trim();
         const mimeType = b64Image.split(";")[0].split(":")[1];
 
-        const result = await $geminiModel.generateContent([
+        const result = await $geminiAPI.generateContent([
             {
                 inlineData: {
                     data: data,
