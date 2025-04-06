@@ -28,15 +28,17 @@ So, I've started learning SvelteKit to fix that. SvelteKit looks like the easies
 
 ## Code
 
-To run the app,
+To run the app in the development environment,
 ```
-$ cd gemini
+$ cd app
 $ npm run dev
 ```
 
-- [Svelte App with Gemini and TensorFlow](./gemini)
-  - ["DropImage" custom element](./gemini/src/lib/DropImage.svelte)
-  - ["MessageModal" custom element](./gemini/src/lib/MessageModal.svelte)
+To build the app,
+```
+$ cd app
+$ npm run build
+```
 
 ## References
 
