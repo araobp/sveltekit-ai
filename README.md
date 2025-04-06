@@ -1,6 +1,6 @@
 # Learning SvelteKit
 
-SvelteKit looks like the easiest JavaScript framework to pick up, so I'm going to learn it.
+Learn SvelteKit by doing.
 
 ## App
 
