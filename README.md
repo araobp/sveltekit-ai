@@ -1,4 +1,4 @@
-# Learning SvelteKit with Gemini and TensorFlow
+# Learning SvelteKit
 
 I've been building a generative AI app at work with Vanilla JS, but the code's getting really bloated and hard to manage.
 
@@ -27,6 +27,12 @@ So, I've started learning SvelteKit to fix that. SvelteKit looks like the easies
 <img src="docs/object_detection_tf.jpg" width=600>
 
 ## Code
+
+To run the app,
+```
+$ cd gemini
+$ npm run dev
+```
 
 - [Svelte App with Gemini and TensorFlow](./gemini)
   - ["DropImage" custom element](./gemini/src/lib/DropImage.svelte)
