@@ -1,4 +1,4 @@
-# Learning SvelteKit with Gemini and TensorFlow
+# Learning SvelteKit
 
 I've been building a generative AI app at work with Vanilla JS, but the code's getting really bloated and hard to manage.
 
