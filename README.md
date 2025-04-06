@@ -1,6 +1,6 @@
 # Learning SvelteKit
 
-Learn SvelteKit by doing.
+Learn SvelteKit by doing with AI.
 
 ## App
 
