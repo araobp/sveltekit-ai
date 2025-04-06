@@ -40,6 +40,13 @@ $ cd app
 $ npm run build
 ```
 
+## TODO
+
+Working with the following:
+- OpenAI TTS
+- OpenCV.js
+- RAG (sqlite-vec)
+
 ## References
 
 - [Tutorial](https://svelte.dev/tutorial/kit/introducing-sveltekit)
