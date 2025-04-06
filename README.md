@@ -28,6 +28,12 @@ So, I've started learning SvelteKit to fix that. SvelteKit looks like the easies
 
 ## Code
 
+To run the app,
+```
+$ cd gemini
+$ npm run dev
+```
+
 - [Svelte App with Gemini and TensorFlow](./gemini)
   - ["DropImage" custom element](./gemini/src/lib/DropImage.svelte)
   - ["MessageModal" custom element](./gemini/src/lib/MessageModal.svelte)
