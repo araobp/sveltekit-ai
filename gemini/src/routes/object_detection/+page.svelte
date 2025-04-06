@@ -1,19 +1,23 @@
 <script>
-    import { GoogleGenerativeAI } from "@google/generative-ai";
-    import { aiParams, GEMINI, TF } from "$lib/settings";
-    import { round } from "$lib/utils";
-    import showdown from "showdown";
+    // Settings
+    import { geminiModel, GEMINI, TF } from "$lib/settings";
 
-    import DropImage from "$lib/DropImage.svelte";
-    import MessageModal from "$lib/MessageModal.svelte";
-    import { SPINNER } from "$lib/bootstrap-html";
-    import { browser } from "$app/environment";
-    import { drawBoundingBoxes } from "./bounding_boxes";
-
+    // TensorFlow.js
     import * as tf from "@tensorflow/tfjs";
     import * as cocoSsd from "@tensorflow-models/coco-ssd";
 
+    import DropImage from "$lib/DropImage.svelte";
+    import MessageModal from "$lib/MessageModal.svelte";
+    import ImageProcessingMode from "$lib/ImageProcessingMode.svelte";
+    import { SPINNER } from "$lib/bootstrap-html";
+    import { browser } from "$app/environment";
+    import { drawBoundingBoxes } from "./bounding_boxes";
+    import { round } from "$lib/utils";
+
+    import showdown from "showdown";
+
     var s_Modal = $state();
+    var s_Mode = $state();
 
     const MAX_SIZE = 5 * 1024 * 1024; // 5MB
     const DEFAULT_IMAGE = "/favicon.png";
@@ -26,7 +30,7 @@
         const data = b64Image.split(",")[1].trim();
         const mimeType = b64Image.split(";")[0].split(":")[1];
 
-        const result = await $aiParams.model.generateContent([
+        const result = await $geminiModel.generateContent([
             {
                 inlineData: {
                     data: data,
@@ -68,7 +72,7 @@
         img.src = b64Image;
 
 
-        if ($aiParams.mode === GEMINI) {
+        if (s_Mode === GEMINI) {
             s_Modal.show();
 
             answer = await generateContentWithGemini(
@@ -85,7 +89,7 @@
             );
             result = parse(answer);
             s_Modal.hide();
-        } else if ($aiParams.mode === TF) {
+        } else if (s_Mode === TF) {
             const model = await cocoSsd.load();
             answer = await model.detect(img, 20, 0.3);
             result = answer.map((e) => ({
@@ -103,12 +107,14 @@
 
         imgDiv.appendChild(img);
         s_Answer = converter.makeHtml(answer);
-        drawBoundingBoxes(img, result, $aiParams.mode);
+        drawBoundingBoxes(img, result, s_Mode);
         
     };
 </script>
 
 <h1>Object Detection</h1>
+
+<ImageProcessingMode bind:mode={s_Mode} ></ImageProcessingMode>
 
 <div class="d-flex mt-3">
     <div class="w-25 p-2">

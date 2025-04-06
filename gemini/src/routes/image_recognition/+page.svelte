@@ -1,17 +1,21 @@
 <script>
-    import { GoogleGenerativeAI, HarmProbability } from "@google/generative-ai";
-    import { aiParams, GEMINI, TF } from "$lib/settings";
-    import showdown from "showdown";
-
+    // Settings
+    import { geminiModel, GEMINI, TF } from "$lib/settings";
+   
+    // TensorFrlow.js
+    import * as tf from "@tensorflow/tfjs";
+    import * as mobilenet from "@tensorflow-models/mobilenet";
+   
     import DropImage from "$lib/DropImage.svelte";
     import MessageModal from "$lib/MessageModal.svelte";
+    import ImageProcessingMode from "$lib/ImageProcessingMode.svelte";
     import { SPINNER } from "$lib/bootstrap-html";
     import { round } from "$lib/utils";
 
-    import * as tf from "@tensorflow/tfjs";
-    import * as mobilenet from "@tensorflow-models/mobilenet";
+    import showdown from "showdown";
 
     var s_Modal = $state();
+    var s_Mode = $state();
 
     const MAX_SIZE = 5 * 1024 * 1024; // 5MB
     const DEFAULT_IMAGE = "/favicon.png";
@@ -24,7 +28,7 @@
         const data = b64Image.split(",")[1].trim();
         const mimeType = b64Image.split(";")[0].split(":")[1];
 
-        const result = await $aiParams.model.generateContent([
+        const result = await $geminiModel.generateContent([
             {
                 inlineData: {
                     data: data,
@@ -41,13 +45,13 @@
         s_Modal.show();
         s_Answer = "";
 
-        if ($aiParams.mode === GEMINI) {
+        if (s_Mode === GEMINI) {
             const answer = await generateContentWithGemini(
                 b64Image,
                 "Describe the image",
             );
             s_Answer = converter.makeHtml(answer);
-        } else if ($aiParams.mode === TF) {
+        } else if (s_Mode === TF) {
             const model = await mobilenet.load();
             s_Answer = await model.classify(imageElm);
         }
@@ -56,12 +60,14 @@
     };
 
     $effect(() => {
-        $aiParams.mode;
+        s_Mode;
         s_Answer = "";
     });
 </script>
 
 <h1>Image Recognition</h1>
+
+<ImageProcessingMode bind:mode={s_Mode} ></ImageProcessingMode>
 
 <div class="d-flex mt-3">
     <div class="w-25 p-2">
@@ -72,10 +78,10 @@
         ></DropImage>
     </div>
     <div class="w-75 p-2">
-        <div class={$aiParams.mode === GEMINI ? "d-inline" : "d-none"}>
+        <div class={s_Mode === GEMINI ? "d-inline" : "d-none"}>
             {@html s_Answer}
         </div>
-        <div class={$aiParams.mode === TF ? "d-inline" : "d-none"}>
+        <div class={s_Mode === TF ? "d-inline" : "d-none"}>
             <table class="table">
                 <thead>
                     <tr>
