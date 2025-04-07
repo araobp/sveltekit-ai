@@ -45,13 +45,6 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/ai_robot"
-                        >AI Robot</a
-                    >
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
                     <a class="nav-link" href="/settings">Settings</a>
                 </li>
             </ul>

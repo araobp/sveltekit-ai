@@ -10,9 +10,3 @@
 <ul>
     <li><a href="/tts">Text-to-Speech</a></li>
 </ul>
-
-<h4>With Three.js</h4>
-
-<ul>
-    <li><a href="/ai_robot">AI Robot</a></li>
-</ul>
