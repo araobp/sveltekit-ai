@@ -32,10 +32,12 @@ $ cd app
 $ npm run dev
 ```
 
-To build the app,
+To build and run the app,
 ```
 $ cd app
 $ npm run build
+$ cd build
+$ node index.js
 ```
 
 ## TODO
