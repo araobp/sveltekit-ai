@@ -51,7 +51,7 @@ Working with the following:
 
 - [Tutorial](https://svelte.dev/tutorial/kit/introducing-sveltekit)
 - [Creating a project](https://svelte.dev/docs/kit/creating-a-project)
-- [Static Site Deployment](https://svelte.dev/docs/kit/adapter-static)
+- [Node Servers](https://svelte.dev/docs/kit/adapter-node)
 - [Building an app](https://svelte.dev/docs/kit/building-your-app)
 - [TensorFlow.js](https://www.tensorflow.org/js)
 - [TTS (OpenAI)](https://platform.openai.com/docs/guides/text-to-speech?lang=javascript)
