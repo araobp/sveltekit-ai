@@ -2,7 +2,6 @@
     import OpenAI from "openai";
     import { WavStreamPlayer } from "wavtools";
 
-    import { openaiAPI } from "$lib/settings";
     import { onMount } from "svelte";
     import { on } from "svelte/events";
     import { equalConfig } from "@tensorflow/tfjs-backend-cpu/dist/kernels/Equal";

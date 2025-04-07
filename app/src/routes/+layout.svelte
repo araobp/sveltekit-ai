@@ -1,18 +1,14 @@
 <script>
-    import { GEMINI, OPENAI, getApiKeyFromLocalStrage, setModel } from "$lib/settings";
+    import { GEMINI, getApiKeyFromLocalStrage, setModel } from "$lib/settings";
     import "bootstrap/dist/css/bootstrap.min.css";
     import { onMount } from "svelte";
     var { children } = $props();
 
     // Instantiate Gemini model
     onMount(() => {
-        var apiKey = getApiKeyFromLocalStrage(GEMINI);
+        const apiKey = getApiKeyFromLocalStrage(GEMINI);
         if (apiKey) {
             setModel(apiKey, GEMINI);
-        }
-        apiKey = getApiKeyFromLocalStrage(OPENAI);
-        if (apiKey) {
-            setModel(apiKey, OPENAI);
         }
     });
 </script>
