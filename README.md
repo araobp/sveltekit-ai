@@ -55,3 +55,4 @@ Working with the following:
 - [Building an app](https://svelte.dev/docs/kit/building-your-app)
 - [TensorFlow.js](https://www.tensorflow.org/js)
 - [TTS (OpenAI)](https://platform.openai.com/docs/guides/text-to-speech?lang=javascript)
+- [Three.js manual](https://threejs.org/manual/)
