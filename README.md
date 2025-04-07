@@ -49,10 +49,17 @@ Working with the following:
 
 ## References
 
+### SvelteKit
 - [Tutorial](https://svelte.dev/tutorial/kit/introducing-sveltekit)
 - [Creating a project](https://svelte.dev/docs/kit/creating-a-project)
 - [Node Servers](https://svelte.dev/docs/kit/adapter-node)
 - [Building an app](https://svelte.dev/docs/kit/building-your-app)
+
+### TensorFlow
 - [TensorFlow.js](https://www.tensorflow.org/js)
-- [TTS (OpenAI)](https://platform.openai.com/docs/guides/text-to-speech?lang=javascript)
+
+### OpenAI
+- [TTS](https://platform.openai.com/docs/guides/text-to-speech?lang=javascript)
+
+### Three.js
 - [Three.js manual](https://threejs.org/manual/)
