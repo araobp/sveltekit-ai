@@ -40,12 +40,6 @@ $ cd build
 $ node index.js
 ```
 
-## TODO
-
-Working with the following:
-- Integration with Electron
-- RAG (sqlite-vec)
-
 ## References
 
 ### SvelteKit
