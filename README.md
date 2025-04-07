@@ -1,8 +1,6 @@
 # Learning SvelteKit
 
-I've been building a generative AI app at work with Vanilla JS, but the code's getting really bloated and hard to manage.
-
-So, I've started learning SvelteKit to fix that. SvelteKit looks like the easiest JavaScript framework to pick up, so I'm going to learn it.
+Learn SvelteKit by doing with AI.
 
 ## App
 
@@ -40,6 +38,14 @@ $ cd app
 $ npm run build
 ```
 
+## TODO
+
+Working with the following:
+- OpenAI TTS
+- OpenCV.js
+- RAG (sqlite-vec)
+- Mixamo models and animations on Three.js
+
 ## References
 
 - [Tutorial](https://svelte.dev/tutorial/kit/introducing-sveltekit)
@@ -47,3 +53,4 @@ $ npm run build
 - [Static Site Deployment](https://svelte.dev/docs/kit/adapter-static)
 - [Building an app](https://svelte.dev/docs/kit/building-your-app)
 - [TensorFlow.js](https://www.tensorflow.org/js)
+- [TTS (OpenAI)](https://platform.openai.com/docs/guides/text-to-speech?lang=javascript)
