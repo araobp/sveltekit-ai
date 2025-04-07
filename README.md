@@ -43,7 +43,6 @@ $ node index.js
 ## TODO
 
 Working with the following:
-- OpenAI TTS
 - OpenCV.js
 - RAG (sqlite-vec)
 - Mixamo models and animations on Three.js
