@@ -45,6 +45,7 @@ $ node index.js
 Working with the following:
 - Mixamo models and animations on Three.js
 - RAG (sqlite-vec)
+- Integration with Electron
 
 ## References
 
