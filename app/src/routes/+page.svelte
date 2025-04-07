@@ -8,5 +8,5 @@
 <h4>With OpenAI</h4>
 
 <ul>
-    <li><a href="/tts">Text-to-Speech</a></li>
+    <li><a href="/speech">Speech</a></li>
 </ul>
