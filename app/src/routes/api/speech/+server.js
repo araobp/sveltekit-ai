@@ -5,12 +5,12 @@ import { playAudio } from "openai/helpers/audio";
 export async function POST({ url }) {
 
     const text = url.searchParams.get('text')
-    console.log(text);
+    const voice = url.searchParams.get('voice')
 
     const openai = new OpenAI();
     const response = await openai.audio.speech.create({
     model: "gpt-4o-mini-tts",
-    voice: "coral",
+    voice: voice,
     input: text,
     instructions: "Speak in a cheerful and positive tone.",
     response_format: "wav",
