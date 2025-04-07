@@ -40,13 +40,6 @@ $ cd build
 $ node index.js
 ```
 
-## TODO
-
-Working with the following:
-- Mixamo models and animations on Three.js
-- RAG (sqlite-vec)
-- Integration with Electron
-
 ## References
 
 ### SvelteKit
@@ -60,6 +53,3 @@ Working with the following:
 
 ### OpenAI
 - [TTS](https://platform.openai.com/docs/guides/text-to-speech?lang=javascript)
-
-### Three.js
-- [Three.js manual](https://threejs.org/manual/)
