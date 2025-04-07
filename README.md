@@ -43,9 +43,8 @@ $ node index.js
 ## TODO
 
 Working with the following:
-- OpenCV.js
-- RAG (sqlite-vec)
 - Mixamo models and animations on Three.js
+- RAG (sqlite-vec)
 
 ## References
 
