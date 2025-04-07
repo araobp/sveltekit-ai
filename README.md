@@ -32,25 +32,26 @@ $ cd app
 $ npm run dev
 ```
 
-To build the app,
+To build and run the app,
 ```
 $ cd app
 $ npm run build
+$ cd build
+$ node index.js
 ```
 
 ## TODO
 
 Working with the following:
-- OpenAI TTS
-- OpenCV.js
-- RAG (sqlite-vec)
 - Mixamo models and animations on Three.js
+- RAG (sqlite-vec)
+- Integration with Electron
 
 ## References
 
 - [Tutorial](https://svelte.dev/tutorial/kit/introducing-sveltekit)
 - [Creating a project](https://svelte.dev/docs/kit/creating-a-project)
-- [Static Site Deployment](https://svelte.dev/docs/kit/adapter-static)
+- [Node Servers](https://svelte.dev/docs/kit/adapter-node)
 - [Building an app](https://svelte.dev/docs/kit/building-your-app)
 - [TensorFlow.js](https://www.tensorflow.org/js)
 - [TTS (OpenAI)](https://platform.openai.com/docs/guides/text-to-speech?lang=javascript)
