@@ -1,4 +1,5 @@
 import { writable } from 'svelte/store';
+import { browser } from '$app/environment';
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import OpenAI from 'openai';
@@ -24,7 +25,11 @@ const KEY = {
 }
 
 export const getApiKeyFromLocalStrage = service => {
-    return localStorage.getItem(KEY[service]);
+    if (browser) {
+        return localStorage.getItem(KEY[service]);
+    } else {
+        return null;
+    }
 };
 
 export const setModel = (apiKey, service) => {
@@ -40,7 +45,9 @@ export const setModel = (apiKey, service) => {
 };
 
 export const saveApiKey = (apiKey, service) => {
-    localStorage.setItem(KEY[service], apiKey);
-    setModel(apiKey, service);
-    console.log(KEY[service], apiKey);;
+    if (browser) {
+        localStorage.setItem(KEY[service], apiKey);
+        setModel(apiKey, service);
+        console.log(KEY[service], apiKey);;
+    }
 };

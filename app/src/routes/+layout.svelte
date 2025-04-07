@@ -42,6 +42,13 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <a class="nav-link" href="/tts"
+                        >Text-to-Speech</a
+                    >
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
                     <a class="nav-link" href="/settings">Settings</a>
                 </li>
             </ul>
