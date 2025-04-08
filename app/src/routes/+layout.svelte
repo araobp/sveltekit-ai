@@ -38,7 +38,7 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/speach"
+                    <a class="nav-link" href="/speech"
                         >Speech</a
                     >
                 </li>
