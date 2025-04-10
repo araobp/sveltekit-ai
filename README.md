@@ -8,21 +8,21 @@ Learn SvelteKit by doing with AI: Gemini, TensorFlow and OpenAI.
 
 #### Gemini 2.0 Flash
 
-<img src="docs/image_recognition_gemini.jpg" width=600>
+<img src="docs/image_recognition_cat_gemini.jpg" width=600>
 
 #### TensorFlow.js mobilenet
 
-<img src="docs/image_recognition_tf.jpg" width=600>
+<img src="docs/image_recognition_cat_tf.jpg" width=600>
 
 ### Object Detection
 
 #### Gemini 2.0 Flash
 
-<img src="docs/object_detection_gemini.jpg" width=600>
+<img src="docs/object_detection_cars_gemini.jpg" width=600>
 
 #### TensorFlow.js coco-ssd
 
-<img src="docs/object_detection_tf.jpg" width=600>
+<img src="docs/object_detection_cars_tf.jpg" width=600>
 
 ## Code
 
