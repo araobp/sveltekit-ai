@@ -1,5 +1,3 @@
-<svelte:options customElement="drop-image" />
-
 <script>
     import { onMount } from "svelte";
     import "bootstrap/dist/css/bootstrap.min.css";

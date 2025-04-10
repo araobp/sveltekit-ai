@@ -9,8 +9,8 @@ import { onMount } from "svelte";
 
 const GEMINI_API_KEY_STORAGE_KEY = "gemini-api-key";
 
-export const GEMINI = "gemini";
-export const TF = "tf";
+export const [GEMINI, TF] = ["gemini", "tf"];
+export const [IMAGE, CAMERA] = ["image", "camera"];
 
 export const geminiAPI = writable(null);
 

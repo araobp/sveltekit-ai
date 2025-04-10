@@ -1,5 +1,3 @@
-<svelte:options customElement="message-modal" />
-
 <script>
     import { onMount } from "svelte";
     import { browser } from "$app/environment";

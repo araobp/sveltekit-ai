@@ -34,7 +34,7 @@
 </script>
 
 <div>
-    <h1>Speech (OpenAI)</h1>
+    <h3>Speech (OpenAI)</h3>
 
     <p>Note: Text-to-Speech runs on the server side. The environment variable "OPENAI_API_KEY" must be set, and ffmpeg needs to be installed. If you are on a Mac, you can install ffmpeg using "brew install ffmpeg".</p>
 

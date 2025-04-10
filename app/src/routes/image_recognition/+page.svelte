@@ -1,11 +1,11 @@
 <script>
     // Settings
-    import { geminiAPI, GEMINI, TF } from "$lib/settings";
-   
+    import { geminiAPI, GEMINI, TF, IMAGE, CAMERA } from "$lib/settings";
+
     // TensorFrlow.js
     import * as tf from "@tensorflow/tfjs";
     import * as mobilenet from "@tensorflow-models/mobilenet";
-   
+
     import DropImage from "$lib/DropImage.svelte";
     import MessageModal from "$lib/MessageModal.svelte";
     import ImageProcessingMode from "$lib/ImageProcessingMode.svelte";
@@ -13,9 +13,14 @@
     import { round } from "$lib/utils";
 
     import showdown from "showdown";
+    import CaptureMode from "$lib/CaptureMode.svelte";
+    import Camera from "$lib/Camera.svelte";
 
     var s_Modal = $state();
-    var s_Mode = $state();
+
+    var s_ProcessingMode = $state();
+    var s_CaptureMode = $state();
+    var s_Video = $state();
 
     const MAX_SIZE = 5 * 1024 * 1024; // 5MB
     const DEFAULT_IMAGE = "/favicon.png";
@@ -45,43 +50,53 @@
         s_Modal.show();
         s_Answer = "";
 
-        if (s_Mode === GEMINI) {
+        if (s_ProcessingMode === GEMINI) {
             const answer = await generateContentWithGemini(
                 b64Image,
                 "Describe the image",
             );
             s_Answer = converter.makeHtml(answer);
-        } else if (s_Mode === TF) {
+        } else if (s_ProcessingMode === TF) {
             const model = await mobilenet.load();
             s_Answer = await model.classify(imageElm);
         }
-        
+
         s_Modal.hide();
     };
 
     $effect(() => {
-        s_Mode;
+        s_ProcessingMode;
         s_Answer = "";
     });
 </script>
 
-<h1>Image Recognition</h1>
+<h3>Image Recognition</h3>
 
-<ImageProcessingMode bind:mode={s_Mode} ></ImageProcessingMode>
+<ImageProcessingMode bind:mode={s_ProcessingMode}></ImageProcessingMode>
+<CaptureMode bind:mode={s_CaptureMode}></CaptureMode>
 
-<div class="d-flex mt-3">
+<div class="d-flex mt-2">
     <div class="w-25 p-2">
-        <DropImage
-            maxSize={MAX_SIZE}
-            defaultImage{DEFAULT_IMAGE}
-            callback={describe}
-        ></DropImage>
+        <div class={s_CaptureMode === IMAGE ? "d-inline" : "d-none"}>
+            <DropImage
+                maxSize={MAX_SIZE}
+                defaultImage{DEFAULT_IMAGE}
+                callback={describe}
+            ></DropImage>
+        </div>
+        <!-- svelte-ignore a11y_media_has_caption -->
+        <div class="w-100 {s_CaptureMode === CAMERA ? 'd-inline' : 'd-none'}">
+            <Camera
+                active={s_CaptureMode === CAMERA}
+                callback={describe}
+            ></Camera>
+        </div>
     </div>
     <div class="w-75 p-2">
-        <div class={s_Mode === GEMINI ? "d-inline" : "d-none"}>
+        <div class={s_ProcessingMode === GEMINI ? "d-inline" : "d-none"}>
             {@html s_Answer}
         </div>
-        <div class={s_Mode === TF ? "d-inline" : "d-none"}>
+        <div class={s_ProcessingMode === TF ? "d-inline" : "d-none"}>
             <table class="table">
                 <thead>
                     <tr>

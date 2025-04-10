@@ -15,7 +15,7 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-        <span class="navbar-brand" href="#">Learning SvelteKit</span>
+        <span class="navbar-brand" href="#">SvelteKit and AI</span>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">

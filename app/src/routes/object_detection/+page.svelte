@@ -112,7 +112,7 @@
     };
 </script>
 
-<h1>Object Detection</h1>
+<h3>Object Detection</h3>
 
 <ImageProcessingMode bind:mode={s_Mode} ></ImageProcessingMode>
 
