@@ -1,6 +1,6 @@
 # SvelteKit and AI
 
-Learn SvelteKit by doing with AI.
+Learn SvelteKit by doing with AI: Gemini, TensorFlow and OpenAI.
 
 ## App
 
