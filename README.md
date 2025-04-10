@@ -2,7 +2,7 @@
 
 Learn SvelteKit by doing with AI: Gemini, TensorFlow and OpenAI.
 
-SvelteKit has dramatically made my work easier!
+SvelteKit has dramatically made my work easier! Good bye, VanillaJS.
 
 ## App
 
