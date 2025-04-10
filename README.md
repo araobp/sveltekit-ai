@@ -66,6 +66,9 @@ $ node index.js
 - [Node Servers](https://svelte.dev/docs/kit/adapter-node)
 - [Building an app](https://svelte.dev/docs/kit/building-your-app)
 
+### Bootstrap
+- [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+
 ### Gemini
 - [Text Generation](https://ai.google.dev/gemini-api/docs/text-generation)
 
