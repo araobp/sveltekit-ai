@@ -15,20 +15,23 @@
         onyx: "Onyx",
         nova: "Nova",
         sage: "Sage",
-        shimmer: "Shimmer"
-    }
+        shimmer: "Shimmer",
+    };
 
-    const speak = async text => {
+    const speak = async (text) => {
         if (text && text.length > 0) {
-            const response =  await fetch(`/api/speech?text=${text}&voice=${s_Voice}&emotion=${s_Emotion}`, {
-                    method: 'POST',
-                });
+            const response = await fetch(
+                `/api/speech?text=${text}&voice=${s_Voice}&emotion=${s_Emotion}`,
+                {
+                    method: "POST",
+                },
+            );
             const json = await response.json();
             console.log(response.status, json.text);
         }
-    }
+    };
 
-    onMount(async() => {
+    onMount(async () => {
         await speak();
     });
 </script>
@@ -36,16 +39,20 @@
 <div>
     <h3>Speech (OpenAI)</h3>
 
-    <p>Note: Text-to-Speech runs on the server side. The environment variable "OPENAI_API_KEY" must be set, and ffmpeg needs to be installed. If you are on a Mac, you can install ffmpeg using "brew install ffmpeg".</p>
+    <p>
+        Note: Text-to-Speech runs on the server side. The environment variable
+        "OPENAI_API_KEY" must be set, and ffmpeg needs to be installed. If you
+        are on a Mac, you can install ffmpeg using "brew install ffmpeg".
+    </p>
 
     <div class="d-flex align-items-center mt-3">
-        <div class="me-1">Voice: </div>
+        <div class="me-1">Voice:</div>
         <select class="form-select w-25" bind:value={s_Voice}>
             {#each Object.keys(VOICES) as voice}
                 <option value={voice}>{VOICES[voice]}</option>
             {/each}
         </select>
-        <div class="ms-3 me-1">Emotion: </div>
+        <div class="ms-3 me-1">Emotion:</div>
         <select class="form-select w-25" bind:value={s_Emotion}>
             {#each Object.keys(EMOTIONS) as emotion}
                 <option value={emotion}>{emotion}</option>
@@ -53,14 +60,17 @@
         </select>
     </div>
 
-    <input
-        type="text"
-        class="form-control mt-2"
-        placeholder="Enter text..."
-        onchange={e => {
-            speak(e.target.value);
-            e.target.value = "";
-            }
-        }
-    />
+    <div class="d-flex align-items-center mt-2">
+        <input
+            type="text"
+            class="form-control w-100"
+            placeholder="Enter text..."
+            onchange={(e) => {
+                speak(e.target.value);
+                e.target.value = "";
+            }}
+        />
+        <button class="btn btn-primary ms-2" onclick={speak}>
+            Speak
+    </div>
 </div>

@@ -1,6 +1,6 @@
 <script>
     // Settings
-    import { geminiAPI, GEMINI, TF } from "$lib/settings";
+    import { geminiAPI, GEMINI, TF, IMAGE, CAMERA } from "$lib/settings";
 
     // TensorFlow.js
     import * as tf from "@tensorflow/tfjs";
@@ -15,9 +15,14 @@
     import { round } from "$lib/utils";
 
     import showdown from "showdown";
+    import CaptureMode from "$lib/CaptureMode.svelte";
+    import Camera from "$lib/Camera.svelte";
 
     var s_Modal = $state();
-    var s_Mode = $state();
+
+    var s_ProcessingMode = $state();
+    var s_CaptureMode = $state();
+    var s_Video = $state();
 
     const MAX_SIZE = 5 * 1024 * 1024; // 5MB
     const DEFAULT_IMAGE = "/favicon.png";
@@ -71,8 +76,7 @@
         const img = document.createElement("img");
         img.src = b64Image;
 
-
-        if (s_Mode === GEMINI) {
+        if (s_ProcessingMode === GEMINI) {
             s_Modal.show();
 
             answer = await generateContentWithGemini(
@@ -89,7 +93,7 @@
             );
             result = parse(answer);
             s_Modal.hide();
-        } else if (s_Mode === TF) {
+        } else if (s_ProcessingMode === TF) {
             const model = await cocoSsd.load();
             answer = await model.detect(img, 20, 0.3);
             result = answer.map((e) => ({
@@ -107,22 +111,29 @@
 
         imgDiv.appendChild(img);
         s_Answer = converter.makeHtml(answer);
-        drawBoundingBoxes(img, result, s_Mode);
-        
+        drawBoundingBoxes(img, result, s_ProcessingMode);
     };
 </script>
 
 <h3>Object Detection</h3>
 
-<ImageProcessingMode bind:mode={s_Mode} ></ImageProcessingMode>
+<ImageProcessingMode bind:mode={s_ProcessingMode}></ImageProcessingMode>
+<CaptureMode bind:mode={s_CaptureMode}></CaptureMode>
 
 <div class="d-flex mt-3">
     <div class="w-25 p-2">
-        <DropImage
-            maxSize={MAX_SIZE}
-            defaultImage{DEFAULT_IMAGE}
-            callback={detect}
-        ></DropImage>
+        <div class={s_CaptureMode === IMAGE ? "d-inline" : "d-none"}>
+            <DropImage
+                maxSize={MAX_SIZE}
+                defaultImage{DEFAULT_IMAGE}
+                callback={detect}
+            ></DropImage>
+        </div>
+        <!-- svelte-ignore a11y_media_has_caption -->
+        <div class="w-100 {s_CaptureMode === CAMERA ? 'd-inline' : 'd-none'}">
+            <Camera active={s_CaptureMode === CAMERA} callback={detect}
+            ></Camera>
+        </div>
     </div>
     <div class="w-75 p-2">
         {@html s_Answer}
