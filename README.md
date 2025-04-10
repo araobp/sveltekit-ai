@@ -34,6 +34,11 @@ Learn SvelteKit by doing with AI: Gemini, TensorFlow and OpenAI.
 
 <img src="docs/object_detection_cup_tf.jpg" width=600>
 
+### Object Detection (Webcam capture)
+
+#### OpenAI gpt-4o-mini-tts
+
+<img src="docs/speech_with_emotion.jpg" width=600>
 
 ## Code
 
