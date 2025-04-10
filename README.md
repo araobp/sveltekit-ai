@@ -66,8 +66,11 @@ $ node index.js
 - [Node Servers](https://svelte.dev/docs/kit/adapter-node)
 - [Building an app](https://svelte.dev/docs/kit/building-your-app)
 
+### Gemini
+- [Text Generation](https://ai.google.dev/gemini-api/docs/text-generation)
+
 ### TensorFlow
 - [TensorFlow.js](https://www.tensorflow.org/js)
 
 ### OpenAI
-- [TTS](https://platform.openai.com/docs/guides/text-to-speech?lang=javascript)
+- [Text to Speech](https://platform.openai.com/docs/guides/text-to-speech?lang=javascript)
