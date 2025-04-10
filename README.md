@@ -28,6 +28,8 @@ Learn SvelteKit by doing with AI: Gemini, TensorFlow and OpenAI.
 
 #### Gemini 2.0 Flash
 
+This UI allows you to select voice and emotion.
+
 <img src="docs/object_detection_cup_gemini.jpg" width=600>
 
 #### TensorFlow.js coco-ssd
