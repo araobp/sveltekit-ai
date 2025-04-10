@@ -2,6 +2,8 @@
 
 Learn SvelteKit by doing with AI: Gemini, TensorFlow and OpenAI.
 
+SvelteKit has dramatically made my work easier!
+
 ## App
 
 ### Image Recognition
