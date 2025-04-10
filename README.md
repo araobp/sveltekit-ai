@@ -42,7 +42,7 @@ This UI allows you to select voice and emotion.
 
 <img src="docs/speech_with_emotion.jpg" width=600>
 
-## Code
+## Running the app
 
 To run the app in the development environment,
 ```
