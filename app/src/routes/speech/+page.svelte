@@ -4,6 +4,7 @@
 
     var s_Voice = $state();
     var s_Emotion = $state();
+    var s_Text = $state();
 
     const VOICES = {
         alloy: "Alloy",
@@ -18,22 +19,19 @@
         shimmer: "Shimmer",
     };
 
-    const speak = async (text) => {
-        if (text && text.length > 0) {
+    const speak = async () => {
+        if (s_Text !== "") {
             const response = await fetch(
-                `/api/speech?text=${text}&voice=${s_Voice}&emotion=${s_Emotion}`,
+                `/api/speech?text=${s_Text}&voice=${s_Voice}&emotion=${s_Emotion}`,
                 {
                     method: "POST",
                 },
             );
             const json = await response.json();
-            console.log(response.status, json.text);
+            //console.log(response.status, json.text);
+            s_Text = "";
         }
     };
-
-    onMount(async () => {
-        await speak();
-    });
 </script>
 
 <div>
@@ -65,12 +63,13 @@
             type="text"
             class="form-control w-100"
             placeholder="Enter text..."
-            onchange={(e) => {
-                speak(e.target.value);
-                e.target.value = "";
+            bind:value={s_Text}
+            onkeypress={(e) => {
+                if (e.key === "Enter") {
+                    speak();
+                }
             }}
         />
-        <button class="btn btn-primary ms-2" onclick={speak}>
-            Speak
+        <button class="btn btn-primary ms-2" onclick={speak}> Speak </button>
     </div>
 </div>
