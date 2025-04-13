@@ -4,6 +4,11 @@ Learn SvelteKit by doing with AI: Gemini, TensorFlow and OpenAI.
 
 SvelteKit has dramatically made my work easier! Good bye, VanillaJS.
 
+
+## TODO
+
+- Fuzzy Search with OpenAI text-embedding-ada-002 and sqlite3-vec.
+
 ## App
 
 ### Image Recognition
