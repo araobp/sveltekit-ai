@@ -9,6 +9,13 @@ SvelteKit has dramatically made my work easier! Good bye, VanillaJS.
 
 - Fuzzy Search with OpenAI text-embedding-ada-002 and [sqlite-vec](https://github.com/asg017/sqlite-vec).
 
+```
+    [SvelteKit Frontend] --- REST --- [SvelteKit Backend]--[sqlite-vec/SQLite3]
+
+```
+
+As long as the data volume is not large, the fuzzy search performance of combining text-embeddings-ada-002 and sqlite3-vec is quite good.
+
 ## App
 
 ### Image Recognition
