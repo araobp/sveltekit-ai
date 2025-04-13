@@ -44,6 +44,13 @@ This UI allows you to select voice and emotion.
 
 <img src="docs/speech_with_emotion.jpg" width=600>
 
+### Translation
+
+#### Gemini 2.0 Flash
+
+<img src="docs/translation_gemini.jpg" width=600>
+
+
 ## Running the app
 
 To run the app in the development environment,
