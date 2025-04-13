@@ -7,7 +7,7 @@ SvelteKit has dramatically made my work easier! Good bye, VanillaJS.
 
 ## TODO
 
-- Fuzzy Search with OpenAI text-embedding-ada-002 and sqlite3-vec.
+- Fuzzy Search with OpenAI text-embedding-ada-002 and [sqlite-vec](https://github.com/asg017/sqlite-vec).
 
 ## App
 
@@ -91,3 +91,7 @@ $ node index.js
 
 ### OpenAI
 - [Text to Speech](https://platform.openai.com/docs/guides/text-to-speech?lang=javascript)
+
+### Vector Embeddings
+- [OpenAI Vector Embeddings](https://platform.openai.com/docs/guides/embeddings)
+- [sqlite-vec](https://github.com/asg017/sqlite-vec)
