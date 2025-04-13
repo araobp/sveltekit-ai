@@ -7,7 +7,7 @@ SvelteKit has dramatically made my work easier! Good bye, VanillaJS.
 
 ## TODO
 
-- Fuzzy Search with OpenAI text-embedding-ada-002 and [sqlite-vec](https://github.com/asg017/sqlite-vec).
+- Fuzzy Search with OpenAI text-embedding-3-small/text-embedding-3-large and [sqlite-vec](https://github.com/asg017/sqlite-vec).
 
 ```
     [SvelteKit Frontend] --- REST --- [SvelteKit Backend]--[sqlite-vec/SQLite3]
