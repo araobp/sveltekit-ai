@@ -41,6 +41,6 @@
         </button>
     </div>
 
-    <textarea class="w-100 mt-2 rounded border p-2" bind:value={s_Result}
+    <textarea class="w-100 mt-2 rounded border p-2" rows="6" bind:value={s_Result}
     ></textarea>
 </div>
