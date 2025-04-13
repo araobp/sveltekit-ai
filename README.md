@@ -14,7 +14,7 @@ SvelteKit has dramatically made my work easier! Good bye, VanillaJS.
 
 ```
 
-The performance of fuzzy search using a combination of text-embeddings-ada-002 and sqlite3-vec is quite good, as long as the data volume isn't too large.
+The performance of fuzzy search using a combination of text-embedding-3-large and sqlite3-vec is quite good, as long as the data volume isn't too large.
 
 ## App
 
