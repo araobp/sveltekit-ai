@@ -86,7 +86,3 @@ $ node index.js
 
 ### OpenAI
 - [Text to Speech](https://platform.openai.com/docs/guides/text-to-speech?lang=javascript)
-
-### Vector Embeddings
-- [OpenAI Vector Embeddings](https://platform.openai.com/docs/guides/embeddings)
-- [sqlite-vec](https://github.com/asg017/sqlite-vec)
