@@ -4,18 +4,6 @@ Learn SvelteKit by doing with AI: Gemini, TensorFlow and OpenAI.
 
 SvelteKit has dramatically made my work easier! Good bye, VanillaJS.
 
-
-## TODO
-
-- Fuzzy Search with OpenAI text-embedding-3-small/text-embedding-3-large and [sqlite-vec](https://github.com/asg017/sqlite-vec).
-
-```
-    [SvelteKit Frontend] --- REST --- [SvelteKit Backend]--[sqlite-vec/SQLite3]
-
-```
-
-The performance of fuzzy search using a combination of text-embedding-3-large and sqlite3-vec is quite good, as long as the data volume isn't too large.
-
 ## App
 
 ### Image Recognition
