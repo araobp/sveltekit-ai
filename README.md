@@ -50,6 +50,12 @@ This UI allows you to select voice and emotion.
 
 <img src="docs/translation_gemini.jpg" width=600>
 
+### Game
+
+#### Rock Paper Scissors
+
+<img src="docs/rock_paper_scissors.jpg" width=600>
+
 
 ## Running the app
 
@@ -66,12 +72,6 @@ $ npm run build
 $ cd build
 $ node index.js
 ```
-
-## Backlog
-
-- Rock Paper Scissors
-- WebAR
-- RAG
 
 ## References
 
