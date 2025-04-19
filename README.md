@@ -73,11 +73,6 @@ $ cd build
 $ node index.js
 ```
 
-## Backlog
-
-- WebAR
-- RAG
-
 ## References
 
 ### SvelteKit
