@@ -136,12 +136,13 @@
         </div>
     </div>
     <div class="w-75 p-2">
-        {@html s_Answer}
+        <div>
+            {@html s_Answer}
+        </div>
+        <!-- svelte-ignore a11y_missing_attribute -->
+        <div id="image"></div>
     </div>
 </div>
-
-<!-- svelte-ignore a11y_missing_attribute -->
-<div id="image"></div>
 
 <MessageModal title="Processing..." innerHTML={SPINNER} bind:modal={s_Modal}
 ></MessageModal>

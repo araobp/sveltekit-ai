@@ -137,7 +137,7 @@
     };
 </script>
 
-<h3>Rock Paper Scissors</h3>
+<h3>Rock Paper Scissors (Gemini)</h3>
 
 <div class="d-flex w-100 mt-2">
     <div class="p-2">
