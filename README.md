@@ -75,7 +75,6 @@ $ node index.js
 
 ## Backlog
 
-- Rock Paper Scissors
 - WebAR
 - RAG
 
