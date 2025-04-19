@@ -131,18 +131,19 @@
         </div>
         <!-- svelte-ignore a11y_media_has_caption -->
         <div class="w-100 {s_CaptureMode === CAMERA ? 'd-inline' : 'd-none'}">
-            <Camera active={s_CaptureMode === CAMERA} callback={detect}
+            <Camera
+                subWindow="false"
+                active={s_CaptureMode === CAMERA}
+                callback={detect}
             ></Camera>
         </div>
     </div>
     <div class="w-75 p-2">
-        <div>
-            {@html s_Answer}
-        </div>
-        <!-- svelte-ignore a11y_missing_attribute -->
-        <div id="image"></div>
+        {@html s_Answer}
     </div>
 </div>
+<!-- svelte-ignore a11y_missing_attribute -->
+<div class="m-2" id="image"></div>
 
 <MessageModal title="Processing..." innerHTML={SPINNER} bind:modal={s_Modal}
 ></MessageModal>
