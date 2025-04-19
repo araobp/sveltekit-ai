@@ -1,12 +1,14 @@
 <script>
-    var { active, callback } = $props();
+    import { onMount } from "svelte";
+
+    var { active = true, subWindow = true, capture = $bindable(), callback = null } = $props();
 
     var s_Video = $state();
     var s_Image = $state();
 
     var s_Shot = $state(false);
 
-    const capture = () =>{
+    capture = () => {
         const canvas = document.createElement("canvas");
         const context = canvas.getContext("2d");
         canvas.width = s_Video.videoWidth;
@@ -22,13 +24,16 @@
         s_Image.src = b64Image;
         s_Shot = true;
 
-        callback(b64Image, imageElm);  
-    }
+        if (callback) {
+            callback(b64Image, imageElm);
+        }
+        return { b64image: b64Image, imageElm: imageElm };
+    };
 
-    $effect(async () => {
+    const setup = async () => {
         if (active) {
             const stream = await navigator.mediaDevices.getUserMedia({
-                video: true,
+                video: true
             });
             s_Video.srcObject = stream;
         } else {
@@ -41,17 +46,29 @@
             }
             s_Video.srcObject = null;
         }
+    }
+
+    $effect(async () => {
+        setup();
+    });
+
+    onMount(() => {
+        setup();
     });
 </script>
 
+<!-- svelte-ignore a11y_media_has_caption -->
+<video class="w-100 mt-2 border rounded" bind:this={s_Video} autoplay></video>
+<div class="text-center mt-1">
+    <button
+        class="btn btn-primary {callback === null ? 'd-none' : 'd-inline'}"
+        onclick={capture}>Capture</button
+    >
+</div>
+
 <!-- svelte-ignore a11y_img_redundant_alt -->
 <img
-    class="w-100 {s_Shot ? "d-inline" : "d-none"}"
+    class="w-100 mt-2 border rounded {(subWindow & s_Shot) ? 'd-inline' : 'd-none'}"
     bind:this={s_Image}
     alt="Captured Image"
 />
-<!-- svelte-ignore a11y_media_has_caption -->
-<video class="w-100 mt-2" bind:this={s_Video} autoplay></video>
-<div class="text-center mt-1">
-    <button class="btn btn-primary" onclick={capture}>Capture</button>
-</div>

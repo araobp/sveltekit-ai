@@ -13,7 +13,7 @@
     });
 </script>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary mb-2">
     <div class="container">
         <span class="navbar-brand" href="#">SvelteKit and AI</span>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -33,6 +33,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/object_detection"
                         >Object Detection</a
+                    >
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/rock_paper_scissors"
+                        >Rock Paper Scissors</a
                     >
                 </li>
             </ul>

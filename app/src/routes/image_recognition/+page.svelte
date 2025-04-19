@@ -21,6 +21,7 @@
     var s_ProcessingMode = $state();
     var s_CaptureMode = $state();
     var s_Video = $state();
+    var s_Capture = $state();
 
     const MAX_SIZE = 5 * 1024 * 1024; // 5MB
     const DEFAULT_IMAGE = "/favicon.png";

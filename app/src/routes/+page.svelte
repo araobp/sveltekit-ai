@@ -3,6 +3,7 @@
 <ul>
     <li><a href="/image_recognition">Image Recognition</a></li>
     <li><a href="/object_detection">Object Detection</a></li>
+    <li><a href="/rock_paper_scissors">Rock Paper Scissors</a></li>
 </ul>
 
 <h4>With OpenAI</h4>
