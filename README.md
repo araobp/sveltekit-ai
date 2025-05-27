@@ -107,17 +107,6 @@ This project includes supplementary assets to support its functionalities and de
 *   **Sample Images (`images/`):** This directory contains a collection of images used for demonstrating the capabilities of the image recognition and object detection features. These images are CC0 licensed and sourced from [ISO Republic](https://isorepublic.com/).
 *   **Blender Files (`blender/`):** This directory includes a Blender file (`drag_and_drop.blend`) and an associated image (`drag_and_drop.png`). These assets may have been used in the design or visualization of UI components, such as drag-and-drop interfaces within the application. The static version of the PNG is also available in `app/static/drag_and_drop.png`.
 
-## Contributing
-
-Contributions to this project are welcome! If you have suggestions for improvements or new features, please feel free to:
-
-1.  Fork the repository.
-2.  Create a new branch for your changes.
-3.  Make your modifications.
-4.  Submit a pull request with a clear description of your changes.
-
-We appreciate your input in making this project better.
-
 ## References
 
 ### SvelteKit
