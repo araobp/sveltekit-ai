@@ -3,10 +3,6 @@ import { browser } from '$app/environment';
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-
-import { updated } from "$app/state";
-import { onMount } from "svelte";
-
 const GEMINI_API_KEY_STORAGE_KEY = "gemini-api-key";
 
 export const [GEMINI, TF] = ["gemini", "tf"];
@@ -29,7 +25,8 @@ export const getApiKeyFromLocalStrage = service => {
 export const setModel = (apiKey, service) => {
     if (service === GEMINI) {
         const genAI = new GoogleGenerativeAI(apiKey);
-        geminiAPI.set(genAI.getGenerativeModel({ model: "gemini-2.0-flash" }));
+        console.log(genAI)
+        geminiAPI.set(genAI.getGenerativeModel({ model: "gemini-2.5-flash" }));
     }
 };
 
