@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import { EMOTIONS } from "../api/speech/emotions";
+    import { EMOTIONS } from "./emotions";
 
     var s_Voice = $state();
     var s_Emotion = $state();
@@ -22,7 +22,7 @@
     const speak = async () => {
         if (s_Text !== "") {
             const response = await fetch(
-                `/api/speech?text=${s_Text}&voice=${s_Voice}&emotion=${s_Emotion}`,
+                `/api/openai/speech?text=${s_Text}&voice=${s_Voice}&emotion=${s_Emotion}`,
                 {
                     method: "POST",
                 },

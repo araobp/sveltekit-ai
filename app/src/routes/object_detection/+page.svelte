@@ -1,7 +1,7 @@
 <script>
     // Settings
-    import { geminiAPI, GEMINI, TF, IMAGE, CAMERA } from "$lib/settings";
-
+    import { GEMINI, TF, IMAGE, CAMERA } from "$lib/settings";
+    import { generateContent } from "$lib/api";
     // TensorFlow.js
     import * as tf from "@tensorflow/tfjs";
     import * as cocoSsd from "@tensorflow-models/coco-ssd";
@@ -30,23 +30,6 @@
     var s_Answer = $state();
 
     const converter = new showdown.Converter();
-
-    const generateContentWithGemini = async (b64Image, prompt) => {
-        const data = b64Image.split(",")[1].trim();
-        const mimeType = b64Image.split(";")[0].split(":")[1];
-
-        const result = await $geminiAPI.generateContent([
-            {
-                inlineData: {
-                    data: data,
-                    mimeType: mimeType,
-                },
-            },
-            prompt,
-        ]);
-
-        return result.response.text();
-    };
 
     const detect = async (b64Image, _) => {
         const parse = (text) => {
@@ -79,8 +62,7 @@
         if (s_ProcessingMode === GEMINI) {
             s_Modal.show();
 
-            answer = await generateContentWithGemini(
-                b64Image,
+            answer = await generateContent(
                 `
             Return bounding boxes for all objects (including persons and animals) in the image.
 
@@ -90,6 +72,7 @@
 
             Output data only without any extra explanations about the output.
             `,
+                b64Image,
             );
             result = parse(answer);
             s_Modal.hide();

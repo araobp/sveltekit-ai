@@ -1,16 +1,6 @@
 <script>
-    import { GEMINI, getApiKeyFromLocalStrage, setModel } from "$lib/settings";
     import "bootstrap/dist/css/bootstrap.min.css";
-    import { onMount } from "svelte";
     var { children } = $props();
-
-    // Instantiate Gemini model
-    onMount(() => {
-        const apiKey = getApiKeyFromLocalStrage(GEMINI);
-        if (apiKey) {
-            setModel(apiKey, GEMINI);
-        }
-    });
 </script>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary mb-2">
@@ -45,21 +35,17 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/speech"
-                        >Speech</a
-                    >
+                    <a class="nav-link" href="/speech">Speech</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/translation"
-                        >Translation</a
-                    >
+                    <a class="nav-link" href="/translation">Translation</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/settings">Settings</a>
+                    <a class="nav-link" href="/app_generation">App Generation</a>
                 </li>
             </ul>
         </div>

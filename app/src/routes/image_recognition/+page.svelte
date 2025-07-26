@@ -1,6 +1,7 @@
 <script>
     // Settings
-    import { geminiAPI, GEMINI, TF, IMAGE, CAMERA } from "$lib/settings";
+    import { GEMINI, TF, IMAGE, CAMERA } from "$lib/settings";
+    import { generateContent } from "$lib/api";
 
     // TensorFrlow.js
     import * as tf from "@tensorflow/tfjs";
@@ -30,31 +31,14 @@
 
     const converter = new showdown.Converter();
 
-    const generateContentWithGemini = async (b64Image, prompt) => {
-        const data = b64Image.split(",")[1].trim();
-        const mimeType = b64Image.split(";")[0].split(":")[1];
-
-        const result = await $geminiAPI.generateContent([
-            {
-                inlineData: {
-                    data: data,
-                    mimeType: mimeType,
-                },
-            },
-            prompt,
-        ]);
-
-        return result.response.text();
-    };
-
     const describe = async (b64Image, imageElm) => {
         s_Modal.show();
         s_Answer = "";
 
         if (s_ProcessingMode === GEMINI) {
-            const answer = await generateContentWithGemini(
-                b64Image,
+            const answer = await generateContent(
                 "Describe the image",
+                b64Image,
             );
             s_Answer = converter.makeHtml(answer);
         } else if (s_ProcessingMode === TF) {

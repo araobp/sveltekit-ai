@@ -1,6 +1,5 @@
 <script>
-    // Settings
-    import { geminiAPI } from "$lib/settings";
+    import { generateContent } from "$lib/api";
     import { sleep } from "$lib/utils";
 
     import MessageModal from "$lib/MessageModal.svelte";
@@ -33,7 +32,6 @@
     var s_Winner = $state("...");
 
     const start = async () => {
-        
         const choose = () => {
             const choices = ["rock", "paper", "scissors"];
             const randomIndex = Math.floor(Math.random() * choices.length);
@@ -57,7 +55,7 @@
         s_Winner = await judge(handGesture);
     };
 
-    const generateContentWithGemini = async (b64Image, prompt) => {
+    const generateContentWithGemini = async (prompt, b64Image) => {
         const parse = (text) => {
             const objectStart = text.indexOf("{");
             const objectEnd = text.lastIndexOf("}");
@@ -74,20 +72,9 @@
             }
         };
 
-        const data = b64Image.split(",")[1].trim();
-        const mimeType = b64Image.split(";")[0].split(":")[1];
+        const text = await generateContent(prompt, b64Image);
 
-        const result = await $geminiAPI.generateContent([
-            {
-                inlineData: {
-                    data: data,
-                    mimeType: mimeType,
-                },
-            },
-            prompt,
-        ]);
-
-        return parse(result.response.text());
+        return parse(text);
     };
 
     const judge = async (handGesture) => {
@@ -97,7 +84,6 @@
         s_YouImage = r.b64image;
 
         const answer = await generateContentWithGemini(
-            r.b64image,
             `You have just played rock-paper-scissors with the person in the attached photo.
             
             Please answer what the person chose: rock, scissors, or paper.
@@ -106,6 +92,7 @@
             and if they chose paper, output {"hand": "paper"},
             if it is uncertain, output {"hand": "unknown"},
             in the JSON format.`,
+            r.b64image,
         );
 
         const ME_RESULT = {
@@ -133,7 +120,7 @@
 
         s_Modal.hide();
 
-        return (result === 'lost' || result === 'win') ? `Me ${result}!`: result;
+        return result === "lost" || result === "win" ? `Me ${result}!` : result;
     };
 </script>
 
@@ -163,7 +150,7 @@
             </div>
         </div>
         <div class="w-100 text-center mt-2">
-        <h3>{s_Winner}</h3>
+            <h3>{s_Winner}</h3>
         </div>
     </div>
 </div>

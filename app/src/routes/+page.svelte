@@ -16,4 +16,5 @@
 
 <ul>
     <li><a href="/translation">Translation</a></li>
+    <li><a href="/app_generation">App Generation</a></li>
 </ul>

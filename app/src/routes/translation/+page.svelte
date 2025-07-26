@@ -1,5 +1,5 @@
 <script>
-    import { geminiAPI } from "$lib/settings";
+    import { generateContent } from "$lib/api";
 
     var s_Text = $state();
     var s_Lang = $state();
@@ -11,8 +11,7 @@
         
         ${s_Text}
         `;
-        const result = await $geminiAPI.generateContent(prompt);
-        s_Result = result.response.text();
+        s_Result = await generateContent(prompt);
     };
 </script>
 
