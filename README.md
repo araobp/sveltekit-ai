@@ -1,63 +1,63 @@
 # SvelteKit and AI
 
-Learn SvelteKit by doing with AI: Gemini, TensorFlow and OpenAI.
-
 SvelteKit has dramatically made my work easier! Good bye, VanillaJS.
 
 ## App
 
 ### Image Recognition
+Identifies the main subject of an image using either Gemini or TensorFlow.js.
 
 #### Gemini 2.0 Flash
-
+Sends the image to the Gemini API for recognition.
 <img src="docs/image_recognition_cat_gemini.jpg" width=600>
 
 #### TensorFlow.js mobilenet
-
+Uses a pre-trained model (mobilenet) to classify images locally in the browser.
 <img src="docs/image_recognition_cat_tf.jpg" width=600>
 
 ### Object Detection
+Detects multiple objects in an image and provides bounding boxes.
 
 #### Gemini 2.0 Flash
-
+Detects objects by sending the image to the Gemini API.
 <img src="docs/object_detection_cars_gemini.jpg" width=600>
 
 #### TensorFlow.js coco-ssd
-
+Uses a pre-trained model (coco-ssd) for object detection in the browser.
 <img src="docs/object_detection_cars_tf.jpg" width=600>
 
 ### Object Detection (Webcam capture)
+Performs real-time object detection on a webcam stream.
 
 #### Gemini 2.0 Flash
-
+Captures a frame from the webcam and sends it to the Gemini API for object detection.
 <img src="docs/object_detection_cup_gemini.jpg" width=600>
 
 #### TensorFlow.js coco-ssd
-
+Performs real-time object detection on the webcam stream using the coco-ssd model.
 <img src="docs/object_detection_cup_tf.jpg" width=600>
 
 ### Text to Speech
+Converts text to speech with a choice of voices and emotions.
 
 #### OpenAI gpt-4o-mini-tts
-
 This UI allows you to select voice and emotion.
-
 <img src="docs/speech_with_emotion.jpg" width=600>
 
 ### Translation
+Translates text from one language to another.
 
 #### Gemini 2.0 Flash
-
 <img src="docs/translation_gemini.jpg" width=600>
 
 ### Game
+A classic game played against the computer.
 
 #### Rock Paper Scissors
-
 <img src="docs/rock_paper_scissors.jpg" width=600>
 
-## App Generation
-
+### App Generation
+Generates a single-page data visualization app based on user instructions and data.
 <img src="docs/app_generation.jpg" width=600>
 
 <img src="docs/app_generation_network_graph.jpg" width=600>
