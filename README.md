@@ -56,6 +56,11 @@ This UI allows you to select voice and emotion.
 
 <img src="docs/rock_paper_scissors.jpg" width=600>
 
+## App Generation
+
+<img src="docs/app_generation.jpg" width=600>
+
+<img src="docs/app_generation_network_graph.jpg" width=600>
 
 ## Prerequisites
 
