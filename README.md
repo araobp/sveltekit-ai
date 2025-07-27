@@ -57,6 +57,10 @@ This UI allows you to select voice and emotion.
 <img src="docs/rock_paper_scissors.jpg" width=600>
 
 
+## Prerequisites
+
+This app requires the `GEMINI_API_KEY` environment variable to be set. The `OPENAI_API_KEY` is optional and only required for the Text to Speech feature.
+
 ## Running the app
 
 To run the app in the development environment,
