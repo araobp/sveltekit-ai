@@ -1,6 +1,6 @@
 # SvelteKit and AI
 
-SvelteKit has dramatically made my work easier! Good bye, VanillaJS.
+SvelteKit and GenAI have dramatically made my work easier! Good bye, VanillaJS.
 
 ## App
 
