@@ -2,7 +2,7 @@
 
 SvelteKit and GenAI have dramatically made my work easier! Good bye, VanillaJS.
 
-## App
+## Apps
 
 ### Image Recognition
 Identifies the main subject of an image using either Gemini or TensorFlow.js.
