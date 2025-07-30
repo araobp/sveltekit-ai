@@ -72,6 +72,10 @@ Generates a single-page data visualization app based on user instructions and da
 
 <img src="docs/app_generation_network_graph.jpg" width=600>
 
+### MCP
+
+The SvelteKit server acts as an MCP host client, connecting to a local MCP server via STDIO.
+
 ## Prerequisites
 
 This app requires the `GEMINI_API_KEY` environment variable to be set. The `OPENAI_API_KEY` is optional and only required for the Text to Speech feature.
