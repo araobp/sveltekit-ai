@@ -7,7 +7,7 @@ I use SvelteKit with GenAI at work for Personalized CX. This project is to study
 ### Image Recognition
 Identifies the main subject of an image using either Gemini or TensorFlow.js.
 
-#### Gemini 2.0 Flash
+#### Gemini
 Sends the image to the Gemini API for recognition.
 
 <img src="docs/image_recognition_cat_gemini.jpg" width=600>
@@ -20,7 +20,7 @@ Uses a pre-trained model (mobilenet) to classify images locally in the browser.
 ### Object Detection
 Detects multiple objects in an image and provides bounding boxes.
 
-#### Gemini 2.0 Flash
+#### Gemini
 Detects objects by sending the image to the Gemini API.
 
 <img src="docs/object_detection_cars_gemini.jpg" width=600>
@@ -33,7 +33,7 @@ Uses a pre-trained model (coco-ssd) for object detection in the browser.
 ### Object Detection (Webcam capture)
 Performs real-time object detection on a webcam stream.
 
-#### Gemini 2.0 Flash
+#### Gemini
 Captures a frame from the webcam and sends it to the Gemini API for object detection.
 
 <img src="docs/object_detection_cup_gemini.jpg" width=600>
@@ -54,7 +54,7 @@ This UI allows you to select voice and emotion.
 ### Translation
 Translates text from one language to another.
 
-#### Gemini 2.0 Flash
+#### Gemini
 
 <img src="docs/translation_gemini.jpg" width=600>
 
