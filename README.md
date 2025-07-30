@@ -1,6 +1,6 @@
 # SvelteKit and AI
 
-SvelteKit and GenAI have dramatically made my work easier! Good bye, VanillaJS.
+I use SvelteKit with GenAI at work for Personalized CX. This project is to study each aspect of GenAI.
 
 ## Apps
 
