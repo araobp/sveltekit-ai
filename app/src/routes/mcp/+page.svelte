@@ -1,4 +1,5 @@
 <script>
+    import Chat from "./Chat.svelte";
     import Context from "./Context.svelte";
 </script>
 
@@ -74,6 +75,7 @@
             aria-labelledby="chat-tab"
             tabindex="0"
         >
+        <Chat></Chat>
         </div>
         <div
             class="tab-pane fade"

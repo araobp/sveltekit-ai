@@ -2,27 +2,16 @@
     import { generateContent } from "$lib/genAiClient";
 
     var s_Text = $state();
-    var s_Lang = $state();
     var s_Result = $state("...");
 
-    const translate = async (text) => {
+    const send = async (text) => {
         s_Result = "...";
-        const prompt = `Translate the following text to ${s_Lang}.
-        
-        ${s_Text}
-        `;
-        s_Result = await generateContent(prompt);
+        const prompt = `${s_Text}`;
+        s_Result = await generateContent(prompt, null, true);
     };
 </script>
 
 <div>
-    <h3>Translation (Gemini)</h3>
-
-    <select class="form-select w-25 mt-3" bind:value={s_Lang}>
-        <option value="Japanese">to Japanese</option>
-        <option value="English" selected>to English</option>
-    </select>
-
     <div class="d-flex align-items-center mt-2">
         <input
             type="text"
@@ -31,12 +20,12 @@
             bind:value={s_Text}
             onkeypress={(e) => {
                 if (e.key === "Enter") {
-                    translate();
+                    send();
                 }
             }}
         />
-        <button class="btn btn-primary ms-2" onclick={translate}>
-            Translate
+        <button class="btn btn-primary ms-2" onclick={send}>
+            Send
         </button>
     </div>
 

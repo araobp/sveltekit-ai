@@ -1,7 +1,7 @@
 <script>
     // Settings
     import { GEMINI, TF, IMAGE, CAMERA } from "$lib/settings";
-    import { generateContent } from "$lib/api";
+    import { generateContent } from "$lib/genAiClient";
 
     // TensorFrlow.js
     import * as tf from "@tensorflow/tfjs";

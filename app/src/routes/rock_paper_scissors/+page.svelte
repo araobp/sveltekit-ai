@@ -1,5 +1,5 @@
 <script>
-    import { generateContent } from "$lib/api";
+    import { generateContent } from "$lib/genAiClient";
     import { sleep } from "$lib/utils";
 
     import MessageModal from "$lib/MessageModal.svelte";

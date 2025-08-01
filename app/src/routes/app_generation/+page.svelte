@@ -1,5 +1,5 @@
 <script>
-    import { generateContent } from "$lib/api";
+    import { generateContent } from "$lib/genAiClient";
     import { browser } from "@tensorflow/tfjs";
 
     var s_Text = $state();

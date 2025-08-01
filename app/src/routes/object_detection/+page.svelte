@@ -1,7 +1,7 @@
 <script>
     // Settings
     import { GEMINI, TF, IMAGE, CAMERA } from "$lib/settings";
-    import { generateContent } from "$lib/api";
+    import { generateContent } from "$lib/genAiClient";
     // TensorFlow.js
     import * as tf from "@tensorflow/tfjs";
     import * as cocoSsd from "@tensorflow-models/coco-ssd";
