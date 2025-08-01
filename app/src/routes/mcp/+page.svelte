@@ -8,6 +8,18 @@
         <li class="nav-item" role="presentation">
             <button
                 class="nav-link active"
+                id="chat-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#chat-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="chat-tab-pane"
+                aria-selected="true">Chat</button
+            >
+        </li>
+        <li class="nav-item" role="presentation">
+            <button
+                class="nav-link"
                 id="resources-tab"
                 data-bs-toggle="tab"
                 data-bs-target="#resources-tab-pane"
@@ -57,6 +69,14 @@
     <div class="tab-content" id="myTabContent">
         <div
             class="tab-pane fade show active"
+            id="chat-tab-pane"
+            role="tabpanel"
+            aria-labelledby="chat-tab"
+            tabindex="0"
+        >
+        </div>
+        <div
+            class="tab-pane fade"
             id="resources-tab-pane"
             role="tabpanel"
             aria-labelledby="resources-tab"
