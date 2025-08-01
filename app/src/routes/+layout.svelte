@@ -1,5 +1,4 @@
 <script>
-    import "bootstrap/dist/css/bootstrap.min.css";
     var { children } = $props();
 </script>
 
@@ -45,7 +44,14 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/app_generation">App Generation</a>
+                    <a class="nav-link" href="/app_generation">App Generation</a
+                    >
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/mcp">MCP</a
+                    >
                 </li>
             </ul>
         </div>

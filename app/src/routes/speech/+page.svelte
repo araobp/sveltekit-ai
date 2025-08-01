@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
-    import { EMOTIONS } from "./emotions";
-
+    import { EMOTIONS } from "$lib/emotions";
+    
     var s_Voice = $state();
     var s_Emotion = $state();
     var s_Text = $state();

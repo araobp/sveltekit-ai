@@ -1,7 +1,7 @@
 import OpenAI from "openai";
 import { playAudio } from "openai/helpers/audio";
 
-import { EMOTIONS } from "../../speech/emotions.js";
+import { EMOTIONS } from "$lib/emotions.js";
 
 // Text to Speech API
 export async function POST({ url }) {

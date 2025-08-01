@@ -74,6 +74,10 @@ Generates a single-page data visualization app based on user instructions and da
 
 ### MCP
 
+The SvelteKit server acts as an MCP host client, connecting to a local MCP server via STDIO.
+
+### MCP
+
 (Work in Progress)
 
 The SvelteKit server acts as an MCP host client, connecting to a local MCP server via STDIO.

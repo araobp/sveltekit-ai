@@ -8,7 +8,7 @@
         <div class="me-1">Capture Mode:</div>
         <select class="form-select" style="width: 10rem;" bind:value={mode}>
             <option value={IMAGE} selected>Picture</option>
-            <option value={CAMERA}>Video</option>
+            <option value={CAMERA}>Camera</option>
         </select>
     </div>
 </div>
