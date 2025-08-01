@@ -58,6 +58,6 @@
     </div>
 </nav>
 
-<div class="container mb-3">
+<div class="container mb-3 d-flex flex-column flex-grow-1">
     {@render children()}
 </div>

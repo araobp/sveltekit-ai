@@ -67,7 +67,7 @@
             >
         </li>
     </ul>
-    <div class="tab-content" id="myTabContent">
+    <div class="tab-content d-flex flex-column flex-grow-1" id="myTabContent">
         <div
             class="tab-pane fade show active"
             id="chat-tab-pane"

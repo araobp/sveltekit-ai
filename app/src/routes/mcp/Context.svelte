@@ -7,7 +7,7 @@
 
     onMount(async () => {
         try {
-            const response = await fetch(`/api/mcp?type=${type}`, {
+            const response = await fetch(`/api/gemini/mcp?type=${type}`, {
                 method: "GET",
             });
             if (!response.ok) {
