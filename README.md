@@ -26,6 +26,13 @@ Generates a single-page data visualization app based on user instructions and da
 
 <img src="docs/app_generation_network_graph.jpg" width=600>
 
+### Game
+A classic game played against the computer.
+
+#### Rock Paper Scissors
+
+<img src="docs/rock_paper_scissors.jpg" width=600>
+
 ### Image Recognition
 Identifies the main subject of an image using either Gemini or TensorFlow.js.
 
@@ -79,14 +86,6 @@ Translates text from one language to another.
 #### Gemini
 
 <img src="docs/translation_gemini.jpg" width=600>
-
-### Game
-A classic game played against the computer.
-
-#### Rock Paper Scissors
-
-<img src="docs/rock_paper_scissors.jpg" width=600>
-
 
 ## Prerequisites
 
