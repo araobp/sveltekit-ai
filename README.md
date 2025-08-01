@@ -4,6 +4,28 @@ I use SvelteKit with GenAI at work for Personalized CX. This project is to study
 
 ## Apps
 
+### MCP
+
+The SvelteKit server acts as an MCP host client, connecting to a local MCP server via STDIO.
+
+```
+                             [Goole Gemini]
+                                   |
+                                  REST
+                                   |
+[McpServer.js]---STDIO---[SvelteKit backend]---REST---[SvelteKit frontend]
+
+```
+
+<img src="docs/mcp.jpg" width=600>
+
+### App Generation
+Generates a single-page data visualization app based on user instructions and data.
+
+<img src="docs/app_generation.jpg" width=600>
+
+<img src="docs/app_generation_network_graph.jpg" width=600>
+
 ### Image Recognition
 Identifies the main subject of an image using either Gemini or TensorFlow.js.
 
@@ -64,28 +86,6 @@ A classic game played against the computer.
 #### Rock Paper Scissors
 
 <img src="docs/rock_paper_scissors.jpg" width=600>
-
-### App Generation
-Generates a single-page data visualization app based on user instructions and data.
-
-<img src="docs/app_generation.jpg" width=600>
-
-<img src="docs/app_generation_network_graph.jpg" width=600>
-
-### MCP
-
-The SvelteKit server acts as an MCP host client, connecting to a local MCP server via STDIO.
-
-```
-                             [Goole Gemini]
-                                   |
-                                  REST
-                                   |
-[McpServer.js]---STDIO---[SvelteKit backend]---REST---[SvelteKit frontend]
-
-```
-
-<img src="docs/mcp.jpg" width=600>
 
 
 ## Prerequisites
