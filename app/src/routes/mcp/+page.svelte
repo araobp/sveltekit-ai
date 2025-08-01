@@ -26,7 +26,7 @@
                 type="button"
                 role="tab"
                 aria-controls="resource-templates-tab-pane"
-                aria-selected="true">Resource Templates</button
+                aria-selected="false">Resource Templates</button
             >
         </li>
         <li class="nav-item" role="presentation">
@@ -65,7 +65,7 @@
             <Context type="resources"></Context>
         </div>
         <div
-            class="tab-pane fade show active"
+            class="tab-pane fade"
             id="resource-templates-tab-pane"
             role="tabpanel"
             aria-labelledby="resource-templates-tab"
