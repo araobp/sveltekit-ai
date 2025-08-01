@@ -78,19 +78,12 @@ Generates a single-page data visualization app based on user instructions and da
 
 The SvelteKit backend acts as an MCP host client, connecting to a local MCP server via STDIO.
 
-I plan to integrate IoT with the MCP server, and probably with a Robot Simulator on Godot.
-
-
 ```
                              [Goole Gemini]
                                    |
                                   REST
                                    |
 [McpServer.js]---STDIO---[SvelteKit backend]---REST---[SvelteKit frontend]
-       |
-      MQTT
-       |
-[Sensors/Actuators]
 
 ```
 
