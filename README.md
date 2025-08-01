@@ -76,12 +76,6 @@ Generates a single-page data visualization app based on user instructions and da
 
 The SvelteKit server acts as an MCP host client, connecting to a local MCP server via STDIO.
 
-### MCP
-
-(Work in Progress)
-
-The SvelteKit backend acts as an MCP host client, connecting to a local MCP server via STDIO.
-
 ```
                              [Goole Gemini]
                                    |
@@ -124,6 +118,7 @@ $ node index.js
 
 ### Gemini
 - [Text Generation](https://ai.google.dev/gemini-api/docs/text-generation)
+- [Working with MCP](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja&example=weather)
 
 ### TensorFlow
 - [TensorFlow.js](https://www.tensorflow.org/js)
