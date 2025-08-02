@@ -19,6 +19,12 @@ The SvelteKit server acts as an MCP host client, connecting to a local MCP serve
 
 <img src="docs/mcp.jpg" width=600>
 
+#### Tools
+
+(Work in progress)
+
+- Extract structured data from text using [LangExtract](https://github.com/google/langextract).
+
 ### App Generation
 Generates a single-page data visualization app based on user instructions and data.
 
