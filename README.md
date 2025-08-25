@@ -9,7 +9,7 @@ I use SvelteKit with GenAI at work for Personalized CX. This project is to study
 The SvelteKit server acts as an MCP host client, connecting to a local MCP server via STDIO.
 
 ```
-                             [Goole Gemini]
+                             [Google Gemini]
                                    |
                                   REST
                                    |
@@ -114,7 +114,7 @@ $ node index.js
 - [Tutorial](https://svelte.dev/tutorial/kit/introducing-sveltekit)
 - [Creating a project](https://svelte.dev/docs/kit/creating-a-project)
 - [Node Servers](https://svelte.dev/docs/kit/adapter-node)
-- [Building an app](https://svelte.dev/docs/kit/building-your-app)
+- [Building an Application](https://svelte.dev/docs/kit/building-your-app)
 
 ### Bootstrap
 - [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
