@@ -108,16 +108,16 @@ $ cd build
 $ node index.js
 ```
 
-## Running the server on RaspberryPi supporting Camera on HTTP origin
+## Running the server on RaspberryPi for Chrome on Android supporting Camera on the HTTP origin
 
-### Make "deploy.sh":
+### Make "deploy.sh" (exaple below) to copy the build folder to RaspberyPi
 
 ```
 sshpass -p 'password' ssh user@192.168.0.123 "rm -rf ~/webai/build/*"
 sshpass -p 'password' scp -r ./app/build user@192.168.0.123:/home/user/webai
 ```
 
-### Modify the chrome flags
+### Modify the chrome flags on Chrome for Android
 
 chrome://flags/#unsafely-treat-insecure-origin-as-secure
 
