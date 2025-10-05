@@ -108,6 +108,19 @@ $ cd build
 $ node index.js
 ```
 
+## Running the server on RaspberryPi supporting Camera on HTTP origin
+
+### Make "deploy.sh":
+
+```
+sshpass -p 'password' ssh user@192.168.0.123 "rm -rf ~/webai/build/*"
+sshpass -p 'password' scp -r ./app/build user@192.168.0.123:/home/user/webai
+```
+
+### Modify the chrome flags
+
+chrome://flags/#unsafely-treat-insecure-origin-as-secure
+
 ## References
 
 ### SvelteKit
